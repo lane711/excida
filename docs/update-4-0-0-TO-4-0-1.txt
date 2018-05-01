@@ -1,0 +1,43 @@
+4.0.1 CHANGELOG
+
+NOTE: Please see /docs/upgrade.txt for upgrade instructions.
+
+BUG FIXES:
+
+* 	Zip is not a required field in add/edit user area and shows as such now
+*	'Amenities' section on view listing page showed 'division by zero' errors
+*	Send a Message links work on view listing page
+*	PHPMailer uses $mail->Body instead of $mail->MsgHTML (was preventing messages from being sent)
+*	On certain emails, website_name variable was blank
+*	Home page price slider now uses default currency from admin panel settings
+*	Resolved image quality issues on iPhone/iPad
+*	HTML wasn't being displayed properly on view user page
+*	'Contact link goes here' text was mistakenly being displayed on view user page
+*	Send message from viewlisting page / profile page weren't always allowing the message to be sent due to improperly assigned variable
+*	Listing description in admin/user edit listing area was mistakenly showing the seller's description
+*	Price can be entered in any format (e.g. $199,999 or 199,000, etc.) and system will strip out commas/currency
+*	Turning the availability calendar to OFF didn't disable it from showing on the view listing page
+*	The price slider on the home page wasn't working properly in iOS (iPad/iPhone)
+*	Enabling the 'featured sellers' module resulted in the home page showing an error
+*	Location and min/max prices not working properly when searching from the home page quick search
+*	Removed 'Reduced' text from displaying in search results, which was hardcoded accidentally
+*	Search results were not displaying the city and state
+*	Images could not always be deleted/unlinked from a listing from edit listing pages if the image name wasn't stored properly
+*	Log in submit button said "Username" instead of "Login"
+*	Admin editlisting area wasn't able to update a listing package
+*	Seller results page wasn't displaying the profile image
+*	Suppressing default timezone errors by adding an ampersand to date_default_timezone_get()
+*	Logging in was failing if the username contained an uppercase letter
+*	send_mailing() function mistakenly referenced $email rather than $bcc for individual emails, so some were not being delivered
+*	Featured listings weren't being displayed in random order for the index page splash
+*	Cron script was not sending out emails properly
+*	Currency wasn't being set in price slider if it was an unsupported currency
+*	Navigation, language, and phone/email now show on iPhone/iPad
+
+MISC:
+
+* 	'Login' has been renamed to the more universal 'Username' field in certain places
+*	PHPMailer will now catch and display exceptions to make debugging email issues easier
+*	Fewer fields are now required for user registration (no longer required: bathrooms, half baths, bedrooms, status). This makes it quicker to list, especially properties that aren't residential (e.g., land only or commercial that do not have bedrooms, etc.)
+*	The "default" image for a listing is the one you uploaded most recently
+* 	Added text on the log in page and links to register to make it easier/more obvious for new users what to do

@@ -1,0 +1,25 @@
+UPDATE PMR 3.2.1 to 3.2.2
+------------------------------------------------------------------------------
+
+NOTE: Please see docs/upgrade.txt for upgrade instructions.
+
+Changelog:
+
++	(admin/editadmins.php) Fixed a bug where admin could not be added due to regular expression error
++	(viewuserlistings.php) Fixed a bug with the sorting not applying to pagination
++	(admin/editadmins.php) Fixed a bug where admin couldn't edit password because $password was not being assigned
++	(admin/cms.php) Fixed bug where string would not be saved while adding a new CMS article if article didn't go through.
++	(adduserlistings.php) Fixed bug where e-mailing did not adhere to the SMTP, SendMail, or mail() options in config.php
++	(docs/update216-300.php) Fixed bug where upgrading from 2.1.6 to 3.0.0 would not update all tables properly.
++	(install/install.php) Added set_time_limit(0) to help with timeout issues, replaced DROP TABLE to CREATE TABLE IF NOT EXISTS, changed INSERT to INSERT IGNORE, added UNIQUE indexes to the configuration INSERTs
++	(docs/upgrade.txt) Added upgrade instructions
++	(includes/common_header.php, install/install.php, includes/functions/db.php) Default character set is UTF-8 for all MySQL connections, queries, etc., Default character set to UTF-8 for all CREATE TABLE statements, Added default UTF-8 charset to PHP headers sent to browser
++	(viewlisting.php, templates/*/tpl/property_detailed.tpl) Replaced outdated </font> references to </span>
++	(sendmessage.php) Fixed a bug where site e-mail address and sender e-mail address were both being added (one as the from name and one as the from e-mail)
++	(viewlisting.php) Fixed a bug where $f['userid'] was being referenced, but was actually being overwritten. Changed the offending variable that was overwriting the value to $f_agent (in agent details section)
++	(languages/english.lng.php) Renamed "Locations" to "Agent Locations," "Contacts" to "Contact Us," and "3-Level Locations" to "Property Locations" to help clarify these items, and other misc. changes
++	(viewlisting.php, includes/ajaxFavorites.php, favorites.php, search.php) CSS 'cursor' changed to the correct 'pointer' attribute
++	(install/zip*.php) US zip codes no longer come with the software by default to speed up installation time and processing. Zip installers are available separately
++	(templates/CT-005/header.php, templates/CT-006/header.php) RSS image wasn't showing properly in header
++	(templates/CT-005/images, templates/CT-006/images) Admin area only wasn't showing the template properly due to missing images
++	(includes/common_footer.php) common_footer.php now contains "Powered by phpMyRealty Professional" text rather than template files

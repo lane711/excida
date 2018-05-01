@@ -1,0 +1,16 @@
+UPDATE PMR 3.0.0 to 3.0.1
+------------------------------------------------------------------------------
+
+the udpated files of 3.0.0 are:
+
+/includes/phpmailer/class.phpmailer.php - now supports MsgHTML variable
+
+/sendmessage.php - correctly creates the URL back to the listing
+
+/submit.php - fixed the activation email problem
+
+/defaults.php - IonCube folder name for zip.php fixed
+
+/includes/functions/zip.php - zip code radius search fixed
+
+/includes/functions/IonCube/zip.php - zip code radius search fixed (IonCube)

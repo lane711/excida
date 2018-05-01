@@ -1,0 +1,16 @@
+UPDATE PMR 3.4.0 to 3.4.1
+------------------------------------------------------------------------------
+
+NOTE: Please see /docs/upgrade.txt for upgrade instructions.
+
+CHANGELOG:
++	WYSIWYG editor has been fixed to resolve an issue where the screen would grey out during certain actions and nothing could be clicked on (e.g., when inserting images / adding links).
++	The Google Maps API has been upgraded to v3, which no longer requires a Google Maps API key to use the system and overall performs better. The Google Maps API class originally being used, Phoogle, has been retired for a new class created specifically to work with Google Maps API v3. This should resolve several issues for many international addresses.
++	The 'default' or 'blue' template has been updated to include a drop-down menu on the right-hand side to allow visitors to the site to select the language as well as the template of their choice.
+
+UPDATE PMR 3.4.1 REVISIONS
++	Bug with PHP short codes
++	Only using session_register() now if the function is detected (to be PHP 5 compatible)
++	.DS_STORE sometimes visible in the template drop down menu
++	CMS editor WYSIWYG editor works with pop ups now (e.g., for inserting images, links, etc.) Previously, it went blank and greyed out the screen.
++	Bug fixed in submit.php where duplicated emails being used would produce an error, but not display what it was

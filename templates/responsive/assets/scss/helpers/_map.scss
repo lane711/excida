@@ -1,0 +1,49 @@
+.marker { @include transition(margin-top .2s linear, padding-bottom .2s linear, opacity .2s linear); background-image: url('../img/marker.png'); background-position: center top; background-repeat: no-repeat; background-size: 42px 57px; height: 57px; opacity: 0.7; width: 42px;
+  &:hover {
+    margin-top: -10px; padding-bottom: 10px; opacity: .99;
+  }
+  @media (-webkit-min-device-pixel-ratio: 2), (-moz-min-device-pixel-ratio: 2) {
+    background-image: url('../img/markers/marker-blue@2x.png');
+  }
+}
+
+.infobox { @include clearfix-normal; background-color: $map-infobox-background-color; padding: 10px; position: relative; width: 270px;
+  &:before { bottom: -16px; border: 8px solid transparent; border-top-color: $map-infobox-background-color; content: ''; height: 0px; margin-left: -8px; left: 50%; position: absolute; width: 0px; z-index: 100; }
+  .image { float: left; margin-bottom: 10px; margin-right: 10px; }
+  .title { font-size: 18px;
+    a {
+      &:href { text-decoration: none; }
+    }
+  }
+  .area { color: $map-infobox-area-color; margin-top: 5px;
+    .key { float: left; font-weight: bold; }
+  }
+  .price { clear: left; color: $map-infobox-price-color; float: left; font-size: 18px; margin-top: 8px; }
+  .link {
+    a { @include buttonize; clear: right; float: right;
+      &:hover { text-decoration: none; }
+    }
+  }
+}
+
+#map { height: 485px; width: 100%;
+  img { max-width: inherit; }
+}
+
+.map { position: relative;
+  .row { position: relative;
+    .span3 { float: right; margin-top: -450px; z-index: 9999; 
+      .property-filter { }
+    }
+  }
+}
+
+
+@media (max-width: 767px) {
+  .map {
+    .row { margin-left: 20px; margin-right: 20px;
+      .span3 { float: none; margin-top: 30px;
+      }
+    }
+  }
+}

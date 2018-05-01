@@ -1,0 +1,128 @@
+UPDATE PMR 1.0.6 to 1.0.7 (BUGFIX RELEASE)
+------------------------------------------------------------------------------
+
+Features / Fixes*:
+
+1   Search Results Sorting Options Updated
+2   Simple Search Form Updated
+3   PDF Currency Sign Fixed
+4   User Login Sidebox Added 
+5   Featured Listings in IFRAME added
+6   Email Alerts Fixed
+7   Image Upload on Listing Submission Form Added
+8   Cron Notification Emails Fixed
+9   Html checkbox lists are splitted into 3 columns now
+10  Mail Function Fixed to support UTF-8 in Subjects correctly
+11  Some corrections to the English language files
+12  CMS top buttons rearranged
+
+* small fixes/changes are not included into this list.
+
+--
+
+1   Search Results Sorting Options Updated
+
+/search.php
+
+some of the options like Lot Size and Dimenstions are no longer included
+into the list
+
+--
+   
+2   Simple Search Form Updated
+
+/templates/default/searchform.php
+
+completely rearranged, zip code search is not included
+
+--
+
+3   PDF Currency Sign Fixed
+
+/pdf.php
+
+now shows correct UTF-8 sign, not the html entity
+
+--
+
+4   User Login Sidebox Added 
+
+/templates/default/header.php
+/templates/default/login.php
+
+--
+
+5   Featured Listings in IFRAME added
+
+/featured-iframe.php
+/featured-iframe-main.php
+/index.php
+
+can be used instead of the standard featured listings box. Randomly
+rotates featured listings in an iframe
+
+--
+
+6   Email Alerts Fixed
+
+/alerts.php
+/adduserlistings.php
+/admin/addlistings.php
+
+now correctly send emails to all the users, not just one
+
+--
+
+7   Image Upload on Listing Submission Form Added
+
+/adduserlistings.php
+
+now user can upload an image right in the submit listing form. Nothing will
+upload if the image is incorrect or is too big
+
+--
+
+8   Cron Notification Emails Fixed
+
+/cron.php
+
+now send email notifications correctly, not just to the first agent
+
+--
+
+9   Html checkbox lists are splitted into 3 columns now
+
+/includes/functions.php
+
+the checkbox selections are now appear in 3 columns to make the list
+smaller
+
+--
+
+10  Mail Function Fixed to support UTF-8 in Subjects correctly
+
+/includes/mail.php
+
+subject field now supports correct UTF-8 encoding
+
+--
+
+11  Some corrections to the English language files
+
+/languages/english.lng.php
+
+--
+
+12  CMS top buttons rearranged
+
+/admin/cms.php
+
+save button removed, some simple changes done not to confuse users
+
+--
+
+Rewrite or add the following files to your current PMR 1.0.6 installation to 
+update to PMR version 1.0.7 (we recommend update all the scripts you have, just
+update config.php manually, not to remove important configuration settings).
+
+===

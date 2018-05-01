@@ -1,0 +1,83 @@
+UPDATE PMR 3.0.x to 3.2.0
+------------------------------------------------------------------------------
+
+Changelog:
+
++	Licensing algorithm modified. All 3.2.0+ license keys will be incompatible with other 3.0.x keys.
++	Fixed edit bug in CMS manager (admin panel)
++	Template drop down menu will no longer show .DS_STORE file
++	Map will only show if Google Maps API key has been entered in (no more pop up error)
++	Videos can be uploaded (FLV only) if MEncoder is unavailable. Uses AJAX to show/hide video.
++	New setting in admin panel - mencoder ON/OFF. If ON, videos will be converted. If OFF, you can upload FLV videos.
++	Admin add/edit, user add/edit has been fixed to allow video uploading or video link adding
++	Bug with approve_realtors ON/OFF fixed in login.php
++	Ability to enable or disable the availability calendar via administration panel (ON/OFF)
++	Bug when trying to change language via $_GET (e.g., http://www.domain.com/?lang=english)
++	In administration panel, system will only allow new users to change to default languages/templates that exist
++	Ability to show/hide:
+	+	Quick search (left-hand column)
+	+	Featured listings (index page)
+	+	All listings (index page)
+	+	Featured agents (index page)
+	+	All agents (index page)
+	+	Main search (index page)
+	+	Recent Agents/Listings / Most Visited module box (index page)
+	+	Google Map (index page)
+	+	Settings box for languages/templates
+	+	Who's Online box
++	CMS Articles now support multiple languages. All installed languages are available. If a visitor is browsing the site in a language that the CMS Article is not written in, it will default to the first listed language in the settings.php file (usually English).
++	Listing descriptions and titles now support multiple languages. All installed languages are available. If a visitor is browsing the site in a language that the title/description is not written in, it will default to the first listed language in the settings.php file (usually English). "Directions" field cannot be translated.
++	Counter that kept track of # of properties in a given type bug fixed (sometimes resulted in a massive number)
++ 	Listings that have expired can either be automatically deleted or disabled from the site for later activation. If expired, the system will no longer remove all listings or expire all listings. It will only expire/remove enough listings so that the account is within the administrative limits. Expired listings can be automatically renewed/reactivated by purchasing an agent package (will update all listings so long as the package allows more listings than they have total) or featured listing package (for that listing) 
++	Admin mailer / alert mailer will not reveal e-mails. They will all be added as BCCs instead
++	English language file updated to have proper line breaks. Some HTML enabled e-mails were one large paragraph rather than properly broken up into small paragraphs
++	sendmessage.php and mail.php cut off e-mail addresses, addresses, etc. if they were longer than 30 or 50 characters
++	Ability to restrict agent details to everyone, registered users only, or paid account holders only
++	For future expansion and to make it easier to add languages to the system for new users, phpMyRealty can support up to 30 languages with just very minor changes (no database changes required)
++	Added JQuery support
++	JQuery Slideshow module for the front page can be turned ON/OFF via admin console
+	+	Can control number of properties to show at a time and scroll speed
+	+	Added templates/<template_name>/tpl/property_search_short_slideshow.tpl to control formatting of slideshow
++	Admin panel mailer / alert mailer now use WYSIWYG to make it easier to send out HTML e-mails
++	Added Vietnamese language translation
++	Added ability to sort by title, date added, date updated, status, price (ASC or DESC) in the user panel to make it easier for users with lots of listings to find them quickly to edit
++	Added ability to set Google Map zoom via admin console
++	Ability to set a property as being Sold, Sale Pending, Available, Under Agreement, etc. The labels can be fully controlled via the administration panel. Please note: What the user selects has no bearing on the listing being marked as Inactive/Active. This is simply so the seller can keep track of the current status of the listing in real life (e.g., whether the property is under agreement) and broadcast that information to visitors to the site.
++	Ability to specify via administration console how far in advance sellers should be notified that their account/listing package is about to expire (e.g., 14 days in advance, 5 days in advance, etc.)
++	New area in administration panel to view "Expired Listings," listings that have not been renewed that have been automatically hidden throughout the system
++	In the administration panel right next to the version check, there is now also phpMyRealty corporate news/announcements being pulled in as well so we can directly broadcast messages (e.g., sales, security updates, etc.) 
+
++ 	Other minor fixes/changes:
+	+	Install script adds a default 3-level location (level 1) so new users can better understand this
+	+	Install script will no longer use phpmyrealty.com as default e-mail address
+	+	config.php file changed to make it easier for new users to install
+	+	'Compare' button only shows if there are listings to actually compare
+	+	Added 'Powered by phpMyRealty Professional' to footer - Unless you own a previous license to phpMyRealty, you may not remove this without purchasing a brandable version
+	+	PDF icon was slightly larger than the rest of the icons (38x38 instead of 32x32)
+	+	Languages are capitalized and in alphabetical order
+	+	Templates are capitalized and in alphabetical order
+	+	CMS Articles in admin panel are in alphabetical order, show ID number of the article, and provide a link to the page to view the content
+	+	1st level locations on index page, advanced search page, add/edit listings page, admin add/edit listings drop down are in alphabetical order
+	+	Compare page provides links to register and log in as well as a header explaining to the user they should review the packages to decide which package is right for them
+	+	Many small edits and additions to the English language file
+	+	Invalid IP addresses will not trigger errors at the bottom of the edit listing pages (admin / user panel)
+	+	Revised settings.php for use in other sections of the software
+	+	Fixed bug where sub menu in admin panel would show on certain pages for unrelated areas. E.g., clicking on Manage Administration, then CMS would still show the Manage Administrations sub menu for the CMS manager. Fixed for CMS, Send Messages, Listing Alerts, and Alerts Mailer pages.
+	+	Fixed bug with box-maps.php not loading on index page because Google Map API was not being initialized properly.
+	+	Fixed bug where admin add/edit listings was setting a description length limit. Admin areas do not trigger the limits now giving the administrator more flexibility.
+	+	Removed the description length countdown since the description fields are now multi-language
+	+	Various rogue $language_in variables in files other than settings.php removed
+	+	In template stylesheets, <li> no longer defaults to having an image. <li class="arrow"> will need to be used instead.
+	+	Logout link displaying in Menu when user isn't actually logged in (but session was started) has been fixed in the following templates: default, CT-005, CT-006, CT-007, CT-011
+	+	The header links in the following templates: CT-005, CT-006, CT-007, CT-011 now change according to the language. Previously, they were static.
+	+	Fixed bug where RSS image wouldn't display properly in template CT-007
+	+	Fixed line break issues with some e-mail templates.
+	+	Print link on viewlisting page opens a new window
+	+	Findusers.php will now confirm prior to deleting users
+	+	Replaced the ioncube/ files as some were outdated.
+	+	Added some new text to the language files. They are only translated into English so far. Please feel free to translate them and send it in to us.
+	+	Upgrade script to go from 3.0.x => 3.2.0
+	+	Fixed .htaccess entries in image directories to use Options -Indexes
+	+	Entire script will expire if license key is invalid, not just the administration panel.
+	+	Encoded Zend files now go in /includes/functions/Zend and ionCube encoded files go in /includes/functions/ionCube
+	+	If no value is set for a particular language, the default language will be used (e.g., when generating drop down menus, etc.). Previously, they would just remain blank.

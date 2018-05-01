@@ -1,0 +1,118 @@
+UPDATE PMR 1.0.9 to 1.1.0
+------------------------------------------------------------------------------
+
+Features:
+
+1   Templates system updated to fix the issues with the strange symbols
+    in the html descriptions. PHP code in tpl files is no longer supported.
+    Please, update your /tpl files in the template folder and remove all 
+    php code.
+
+2   Compare listings tool fixed to show correct html descriptions.
+
+3   sitemap.php fixed to include mod_rewrite compatible URLs to listings and
+    agents.
+
+4   Short descriptions size problem in listing search results fixed.
+    HTML is no longer included into the short search results descriptions.
+
+5   Google base feed generator fixed to include correct descriptions.
+
+6   CSV Import tool added, this is a beta version, please, backup your
+    database and images before using it.
+
+7   CMS in admin panel now has more features enabled
+
+8   Automatic JPEG images resize added. Now you can upload JPEG of any size
+    and it will be automatically resized to 640xHHH where HHH is the 
+    proportional height.
+
+9   Featured Agents and Recent Agents modules added into the index.php
+
+--
+
+1   Templates system updated to fix the issues with the strange symbols
+    in the html descriptions.
+
+/includes/templates.php
+/templates/default/tpl/* (removed all php code)
+
+--
+
+2   Compare listings tool fixed to show correct html descriptions.
+
+/comparelistings.php
+
+--
+
+3   sitemap.php fixed to include mod_rewrite compatible URLs to listings and
+    agents.
+
+/sitemap.php
+
+--
+
+4   Short descriptions size problem in listing search results fixed.
+
+/includes/functions.php (REMOVEHTML() added)
+/favorites.php
+/featured.php
+/recent.php
+/search.php
+/mostvisited.php
+/viewuserlistings.php
+/rss.php
+/pdf.php
+
+--
+
+5   Google base feed generator fixed to include correct non-html descriptions.
+
+/includes/functions.php (REMOVEHTML() added)
+/google.php
+
+--
+
+6   CSV Import tool added, this is a beta version, please, backup your
+    database and images before using it.
+
+/admin/import.php
+/admin/navigation.php
+
+--
+
+7   CMS in admin panel now has more features enabled
+
+/admin/cms.php
+/includes/functions.php
+/includes/FCKeditor/fckconfig2.js
+
+--
+
+8   Automatic JPEG images resize added. Now you can upload JPEG of any size
+    and it will be automatically resized to 640xHHH where HHH is the 
+    proportional height.
+
+/includes/functions.php
+
+--
+
+9   Featured Agents and Recent Agents modules added into the index.php
+
+/agents.php
+/featured-agents.php
+/index.php
+
+/languages/*.*
+
+new variables added:
+
+$lang['Module_Recent_Agents']
+$lang['Module_Featured_Agents']
+
+--
+Rewrite or add the following files to your current PMR 1.0.9 installation to 
+update to PMR version 1.1.0 (we recommend update all the scripts you have, just
+update config.php manually, not to remove important configuration settings).
+
+===

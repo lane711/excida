@@ -1,0 +1,101 @@
+4.0.2 CHANGELOG
+
+NOTE: Please see /docs/upgrade.txt for upgrade instructions.
+
+FEATURES:
+
+*	Integrated a new captcha system courtesy of Google. Read more here: http://googleonlinesecurity.blogspot.com/2014/12/are-you-robot-introducing-no-captcha.html
+*	The reCAPTCHA service through Google can be turned on and off through the administration panel
+*	A keyword search will be global, searching the MLS ID, listing ID, address, location, title, description, and so on
+* 	Video output will now accommodate entering in just an embed URL or embed HTML for YouTube video tours
+*	Ability to turn registrations on/off
+
+BUG FIXES:
+
+*	Navigation, language, and phone/email now show on iPhone/iPad
+*	SEO-friendly URLs were not being enabled properly
+* 	User control panel still showed approval message even if the user had already been approved
+*	Updating user profile in admin would result in user's password being incorrectly set
+*	Corrected an outdated link to findlistings.php in admin/users.php (should have just listings.php)
+*	Retired html_entity_decode_utf8() since html_entity_decode supports utf8 capable decoding in PHP 4.3+ (/e modifier for preg_replace was deprecated in PHP 5.5+ and resulting in errors)
+*	User hit counter works with 24 hour timeout in between votes per user
+*	Pagination was not working properly in the location mgt. section of the admin panel
+*	Admin privileges were not properly formatting due 
+*	Registration didn't properly take into consideration the 'allow same email' option
+*	If user wasn't logged in, the view user page was throwing an error
+*	CKEditor should no longer add in blank paragraph HTML tags
+*	Ability to browse listings in admin for a particular user ID has been restored
+*	Send message link on the seller profile page has been fixed
+*	Meta title, description now show properly on view user page
+*	Database columns for dates are now stored as DATE rather than VARCHAR(10)
+*	Alerts price/rent from and to ranges were not properly switching between for rent/for sale property types
+*	MLS wasn't properly turning off/on because the $conf variable was $conf['mls'] instead of $conf['show_mls']
+*	Alerts were not being properly sent out when a property matched a notification's criteria
+*	Custom fields were not properly displaying select box values in the admin addlisting / editlisting areas
+*	Admin add users didn't properly add a user if location field was missing
+*	Adding a user through the admin panel no longer results in a message asking the administrator to check a link to approve the account
+*	Added better pagination and updated code to the admin/users.php and admin/listings.php files
+* 	Pagination function now accounts for arrays (converts to delimited values)
+
+MISC:
+
+*	Increased TimThumb's resizing capabilities to images that are 30 MB+, rather than the default of 10 MB
+*	Removed /admin/alertsMailer.php as the file is no longer used
+*	Admin panel displays alerts in a cleaner format with pagination and ability to approve/delete alerts
+*	Added the new alerts_check() function to eliminate redundant code
+*	Added debug() function that will output test data if DEBUG constant is set to true (allows you to easily enable/disable debug data)
+*	Upgrade script will update DB tables from 4.0.0 -> 4.0.1 (no DB changes) and 4.0.1 -> 4.0.2 (minor DB changes)
+*	Added a build number to allow for hot fixes to be more easily identifiable
+*	Added the ability to query the software for a version response (to help with debugging)
+
+HOTFIXES:
+
+BUILD 2:
+
+*	Listing alert check function resulted in an error if the listing wasn't completely filled out
+*	The title for SEO-friendly URLs was not being retrieved properly in generate_link()
+
+BUILD 3:
+
+*	The update401-402.php file was generating a Template not found error
+*	The check_alerts() function wasn't checking if the variable was a string
+
+BUILD 4:
+
+*	Modified .htaccess to include [L] at the end of every rewrite to prevent GoDaddy from displaying the "no input file specified" error
+
+BUILD 5:	
+
+*	Moved version information from config.php to version.php (new file)
+
+BUILD 6:
+
+*	Listings deleted from the admin panel are removed properly (removeuserlisting() instead of removelisting() being used)
+
+BUILD 7:
+
+*	Navigation links weren't being properly displayed on the mobile version of the site
+*	Top search wasn't properly searching locations, IDs, or MLS IDs
+*	In edituserlistings.php, the lot size value wasn't being property set
+*	The packages for a seller to select from weren't being displayed in the seller control panel
+*	Send message link on view listing page wasn't linked properly
+*	The rate this listing functionality resulted in a 404 not found error
+*	Removed the character limit input box from add/edit listings for directions and add/edit users for profile description
+*	Send message didn't include the type for SEO-friendly URLs
+*	Home page search was requiring bathrooms and bedrooms to have at least one, which didn't apply to all listings
+*	If only a single featured listing exists, the slide show will be disabled on the front page and a static image will show
+*	Video embedding wasn't working correctly
+*	Featured listings appearing in the footer for the 'responsive' theme will now display in random order
+*	Contacting a seller via the view listing page for the responsive template requires captcha be filled out to prevent spam
+*	Using the contact form at footer of the responsive template requires captcha to be filled out to prevent spam
+*	All emails are now sent as HTML
+*	Made the alerts error message text clearer by explaining zips/radius are one field
+
+BUILD 8:
+
+*	Upgrade script from 4.0.1 to 4.0.2 didn't populate captcha settings into the configuration table properly
+*	If display address is set to true, the lat/long coordinates will be properly set in viewlisting.php
+*	User's password was not being stored properly in the admin panel edit user area when a password wasn't changed
+*	Send message for a listing wasn't correctly setting the URL
+*	Custom field values in the add/edit listing area weren't being properly displayed in the seller control panel
+*	Navigation in the custom field editor wasn't the same as the rest of the customization area

@@ -1,0 +1,14 @@
+User-agent: *
+Disallow: /admin/
+Disallow: /banners/
+Disallow: /fonts/
+Disallow: /gallery/
+Disallow: /images/
+Disallow: /ioncube/
+Disallow: /includes/
+Disallow: /languages/
+Disallow: /modules/
+Disallow: /photos/
+Disallow: /templates/
+Disallow: /upload/
+Disallow: /video/

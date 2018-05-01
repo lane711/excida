@@ -1,0 +1,143 @@
+UPDATE PMR 1.0.4 to 1.0.5
+------------------------------------------------------------------------------
+
+Features:
+
+-   2checkout gateway integrated;
+-   PDF support added;
+-   UTF-8 in PDF added;
+-   Google Maps API v2 added;
+-   Simple CMS for additional pages added;
+-   'Sale / Rent / Buy' dropdown added;
+-   Video Tour link added;
+
+Rewrite or add the following files to your current PMR 1.0.4 installation to 
+update to PMR version 1.0.5 (we recommend update all the scripts you have, just
+update config.php manually, not to remove important configuration settings).
+
+--
+
+The updated files list by feature:
+
+--  2CO INTEGRATION
+
+/install/install.php - changed / new variables added to the configuration table;
+
+/2checkout.php - added / 2co return processing script
+
+/admin/agentpackages.php - changed / 2co product ID added to each package form
+
+/admin/packages.php - changed / 2co product ID added to each package form
+
+/edituserlistings.php - changed / 2co upgrade forms added
+
+/login.php - changed / 2co upgrade forms added
+
+/submit.php - changed / 2co upgrade forms added
+
+-- PDF SUPPORT + UTF-8 IN PDF
+
+/includes/fpdf_font/* - added / fonts folder for fpdf (utf-8 support)
+
+/includes/fpdf.php - added / PDF functions
+
+/includes/ufpdf.php - added / PDF functions with UTF-8 support
+
+/templates/default/tpl/property_detailed.tpl - changed / {pdf} mark added
+
+/pdf.php - added / PDF script
+
+/viewlisting.php - {pdf} mark added for templates
+
+-- GOOGLE MAPS API2
+
+/map.php - changed / new functions / variables added,
+           yahoo address API required no more
+
+-- SIMPLE CMS
+
+/admin/html/* - added / TinyMCE templating system
+
+/admin/cms.php - added / Additional Pages Editor
+
+/includes/functions.php - changed / safeHTML function updated
+
+/templates/default/menu2.php - changed / additional pages will appear 
+                               in the top menu
+
+/admin/navigation.php - changed / new link to CMS added
+
+/pages.php - added / CMS pages output script
+
+/install/install.php - changed / new table added
+
+/config.php - changed / new table constant added
+
+-- 'SALE / RENT / BUY' DROPDOWN
+
+/languages/english.lng.php - changed / $lang['Module_Listing_Type'] added
+
+/config.php - changed / TYPES2_TABLE table constant added
+
+/install.php - changed / TYPES2_TABLE added / new field added to listings 
+	       table - type2 smallint(5) UNSIGNED DEFAULT \'0\'
+
+/adduserlistings.php - changed / dropdown added
+
+/edituserlistings.php - changed / dropdown added
+
+/admin/addlistings.php - changed / dropdown added
+
+/admin/editlistings.php - changed / dropdown added
+
+/templates/default/tpl/property_detailed.tpl - changed / {type2} mark added
+
+/templates/default/tpl/property_search_short.tpl - changed / {type2} mark added
+
+/templates/default/tpl/property_detailed_print.tpl - changed / {type2} mark added
+
+/viewlisting.php - changed / {type2} mark added
+
+/favorites.php - changed / {type2} mark added
+
+/featured.php - changed / {type2} mark added
+
+/mostvisited.php - changed / {type2} mark added
+
+/recent.php - changed / {type2} mark added
+
+/search.php - changed / {type2} mark added
+
+/viewuserlistings.php - changed / {type2} mark added
+
+/admin/editlistings.php - changed / {type2} mark added
+
+/admin/findlistings.php - changed / {type2} mark added
+
+/admin/template/tpl/listing-short.tpl - changed / {type2} mark added
+
+/advsearchform.php - changed / type2 field added
+
+/templates/default/searchform2.php - changed / type2 field added
+
+-- VIDEO TOUR LINK
+
+/languages/english.lng.php - changed / $lang['Video_Tour'] added
+
+/install.php - changed / new field added to listings table - video varchar(255)
+
+/admin/editlistings.php - changed / {video} mark added
+
+/admin/addlistings.php - changed / {video} mark added
+
+/adduserlistings.php - changed / video field added
+
+/edituserlistings.php - changed / video field added
+
+/viewlisting.php - changed / video link added
+
+/templates/default/tpl/listing_detailed.tpl - changed / {video} mark added
+
+/templates/default/images/icons/video.png - added / video icon
+
+===

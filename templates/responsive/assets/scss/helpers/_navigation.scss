@@ -1,0 +1,154 @@
+#navigation { background-color: rgba(255, 255, 255, .5); }
+
+.navigation-wrapper {
+  .navigation { line-height: 1;
+    .nav { @include clearfix-normal; display: block; float: left; list-style: none; margin: 0px;
+      li { background-color: transparent; float: left; position: relative;
+        .nolink, a { @include transition(none); background-color: transparent; border-left: 0px; border-top: 2px solid transparent; color: $navigation-link-color; cursor: pointer; display: block; font-size: 16px; line-height: 1; padding-left: 20px; padding-right: 20px; padding-bottom: 23px; padding-top: 21px; white-space: nowrap;
+          &:hover { background-color: $navigation-link-hover-background-color; border-top: 2px solid $navigation-link-border-color; color: $navigation-link-color-hover; text-decoration: none; }
+          &.active { border-top: 2px solid $navigation-link-border-color; }
+        }
+
+        &.menuparent {
+          > .nolink, > a { background-image: url('../img/arrow-bottom-black.png'); background-position: 90% center; background-repeat: no-repeat; background-size: 11px 8px; padding-right: 40px;
+            @media (-webkit-min-device-pixel-ratio: 2), (-moz-min-device-pixel-ratio: 2) {
+              background-image: url('../img/arrow-bottom-black@2x.png');
+            }
+          }
+          li {
+            &.menuparent {
+              > .nolink, > a { background-image: url('../img/arrow-right-white.png'); background-size: 8px 11px;
+                @media (-webkit-min-device-pixel-ratio: 2), (-moz-min-device-pixel-ratio: 2) {
+                  background-image: url('../img/arrow-right-white@2x.png');
+                }
+              }
+            }
+          }
+        }
+
+        &:hover {
+          > ul { visibility: visible; }
+          > .nolink, > a { background-color: $navigation-link-hover-background-color; border-top: 2px solid $navigation-link-border-color; color: $navigation-link-color-hover; text-decoration: none; 
+            &.menuparent { background-image: url('../img/arrow-bottom-white.png'); 
+              @media (-webkit-min-device-pixel-ratio: 2), (-moz-min-device-pixel-ratio: 2) {
+                background-image: url('../img/arrow-bottom-white@2x.png');
+              }
+            }
+          }
+        }
+
+        ul { @include background-image(none); @include border-radius(0px); background-color: $navigation-sub-background-color; margin: 62px 0px 0px 0px; position: absolute; padding: 0px; top: 0px; visibility: hidden; width: 220px; z-index: 999;
+          li { float: none; display: block; min-width: 100%;
+            .nolink, a { @include transition(background-color .1s ease-in, padding-left .1s ease-in); border-top: 0px !important; color: $navigation-sub-link-color !important; display: block; font-size: 14px; padding-right: 20px; padding-bottom: 15px; padding-top: 15px;
+              &.menuparent { background-image: url('../img/arrow-right-white.png'); background-position: 90%; background-size: 8px 11px; background-repeat: no-repeat;
+                @media (-webkit-min-device-pixel-ratio: 2), (-moz-min-device-pixel-ratio: 2) {
+                  background-image: url('../img/arrow-right-white@2x.png');
+                }
+                &:hover {
+                  background-image: url('../img/arrow-right-white.png'); background-size: 8px 11px;
+                  @media (-webkit-min-device-pixel-ratio: 2), (-moz-min-device-pixel-ratio: 2) {
+                    background-image: url('../img/arrow-right-white@2x.png');
+                  }
+                }
+              }
+
+              &:hover { background-color: $blue; padding-left: 25px; }
+            }
+            ul { left: 220px !important; margin-top: 0px; }
+          }
+        }
+      }
+    }
+
+    .site-search { float: right; margin: 13px 20px 0px 0px;
+      input { @include border-radius(0px); border-right: 0px; width: 146px; }
+      button { @include background-image(none); @include border-radius(0px); @include box-shadow(none); @include text-shadow(none);
+        background-color: #fff; background-image: url('../img/icons/search.png'); background-position: center center; background-repeat: no-repeat; background-size: 13px 13px; border: 1px solid $gray-medium; border-left: 0px; display: inline-block; margin: 0px 0px 0px -5px; padding: 6px 15px; vertical-align: top; text-indent: -9999px; 
+        @media (-webkit-min-device-pixel-ratio: 2), (-moz-min-device-pixel-ratio: 2) {
+          background-image: url('../img/icons/search@2x.png');
+        }
+      }
+      .control-group { display: inline-block; margin: 0px; }
+    }
+
+    .language-switcher { @include shadow; float: right; margin: 13px 0px 11px 0px; position: relative; 
+      &:hover {
+        .options { max-height: 200px; }
+      }
+      .en {
+        a { background-image: url('../img/flags/United-Kingdom-Flag.png'); background-position: left center; background-repeat: no-repeat; background-size: 16px 16px; margin-left: 15px;
+          @media (-webkit-min-device-pixel-ratio: 2), (-moz-min-device-pixel-ratio: 2) {
+            background-image: url('../img/flags/United-Kingdom-Flag@2x.png');
+          }
+        }
+      }
+      .de {
+        a { background-image: url('../img/flags/Germany-Flag.png'); background-position: left center; background-repeat: no-repeat; background-size: 16px 16px; margin-left: 15px;
+          @media (-webkit-min-device-pixel-ratio: 2), (-moz-min-device-pixel-ratio: 2) {
+            background-image: url('../img/flags/Germany-Flag@2x.png');
+          }
+        }
+      }
+      .fr {
+        a { background-image: url('../img/flags/France-Flag.png'); background-position: left center; background-repeat: no-repeat; background-size: 16px 16px; margin-left: 15px;
+          @media (-webkit-min-device-pixel-ratio: 2), (-moz-min-device-pixel-ratio: 2) {
+            background-image: url('../img/flags/France-Flag@2x.png');
+          }
+        }
+      }
+      .current { background-color: $navigation-language-background-color; background-image: url('../img/arrow-bottom-black.png'); background-position: right center; background-repeat: no-repeat; background-size: 11px 7px; border-right: 9px solid #ffffff;
+        @media (-webkit-min-device-pixel-ratio: 2), (-moz-min-device-pixel-ratio: 2) {
+          background-image: url('../img/arrow-bottom-black@2x.png');
+        }
+        a { color: $navigation-link-color; display: block; text-decoration: none; padding: 10px 17px 10px 25px; text-indent: -9999px; }
+      }
+      .options { @include transition(max-height .5s linear); @include shadow; max-height: 0px; overflow: hidden; position: absolute; right: 0px; top: 34px; z-index: 999;
+        ul { background-color: $navigation-language-background-color; list-style: none; margin: 0px; padding: 0px;
+          li { display: block;
+            a { color: $navigation-link-color; display: block; padding: 10px 26px 10px 25px; text-decoration: none; text-indent: -9999px; }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 979px) {
+  .navigation-wrapper { background-color: $navigation-background-color; height: 100%; left: -70%; position: absolute; top: 0; width: 70%;
+    .navigation {      
+      .nav { display: block; float: none; margin: 0px;
+        li { clear: both; display: block; float: none; text-align: right;
+          .nolink, a { background-image: none !important; border: 0px !important; color: $navigation-sub-link-color; display: block; font-size: 14px; font-weight: bold; padding-bottom: 20px; padding-top: 20px;
+            &:hover { background-color: transparent; border: 0px !important; }
+          }
+          &:hover {
+            a { border: 0px !important; color: $navigation-sub-link-color; }
+          }
+          ul { border-right: 2px solid $navigation-sub-link-color !important; display: block !important; float: none; left: auto !important; margin: 0px 15px 0px 0px !important; position: relative !important; top: auto !important; visibility: visible !important; width: auto !important;
+            li {
+              .nolink, a { background-color: transparent;  border: 0px; font-size: 14px;
+                &:hover { background-color: transparent; border: 0px; color: $navigation-sub-link-color !important; }
+              }
+              &.menuparent {
+                > .nolink, > a { background-image: none !important; }
+              }
+              ul { border-right: 2px solid $navigation-sub-link-color !important; display: block !important; float: none; left: auto !important; margin: 0px 15px 0px 0px !important; position: relative !important; top: auto !important; visibility: visible !important; width: auto !important; }
+            }
+          }
+        }
+      }
+      
+      .language-switcher { display: none; }
+    }
+  }
+}
+
+@media (max-width: 979px) {
+  .navigation-wrapper {
+    .navigation {
+      .site-search {
+        input { height: 34px !important; padding:6px !important;}
+      }
+    }
+  }
+}

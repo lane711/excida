@@ -1,0 +1,122 @@
+4.0.0 CHANGELOG
+
+NOTE: Please see /docs/upgrade.txt for upgrade instructions.
+
+FEATURES:
+
+*	New, fully responsive/mobile-friendly template is now the default template
+*	You can now upload listing pictures in bulk by dragging and dropping as many as the seller account allows
+*	Conducted speed/benchmarking tests with over 250,000 listings and 10,000 users
+*	Added ability to set custom pages as 'navigation' links for 'responsive' template
+*	New configuration option in admin panel to set latitude/longitude coordinates or address as the default for map markers
+*	Modified the Template class, allowing for PHP code to be evaluated at the template level (useful for loops, etc. in HTML without having to introduce HTML in PHP scripts and further keeping PHP core files and template/design-specific files separate)
+*	XAJAX has been removed in favor of jQuery exclusively, along with all AJAX functions rewritten in jQuery (e.g., 3-level drop downs, add as favorite, etc.)
+*	Location data is now stored in a single database table to make queries easier (e.g., sorting queries by location name, possibility of performing an SQL JOIN)
+*	All images throughout the site are resized in real-time dynamically and cached. This will make it very easy to switch to new templates that may have different image size requirements, since all originals are saved. The caching will speed up the page load time as well
+*	Added a new pagination function to make development easier
+*	Various mortgage resources are in the CMS page and the outdated mortgage calculator has been retired. This will give customers more control over the content and allow them to easily delete the page/resource if they don't find it useful
+*	Administration panel has been refreshed with a responsive, cleaner design, updated icons, and more intuitive console
+*	Ability to set listing alerts is significantly more advanced now (virtually all search fields can be used as an alert)
+*	You can now specifiy social media links that will automatically appear in the footer if set (Facebook, Twitter, LinkedIn, Flickr, Vimeo, Skype, and Google+ are supported)
+*	The US data pack (all location data for the United States) is now available via the Downloads area in the Client Center
+*	Many new settings in admin panel, such as site_mode, which allows you to put the site in FSBO or agent mode (still being developed and should be more powerful in a future release)
+*	Revamped administration panel so it is fully responsive and quicker to navigate
+*	Created an installer to make fresh installations quicker and easier
+*	Added social networking sharing tools through ShareThis.com
+*	Added CKEditor to add/edit description box for user/admin areas
+*	Ability to reset the administrator password
+
+BUG FIXES:
+
+*	Removed includes/functions/maps.php and replaced it with SimpleGMaps for Google Maps API v3 compatibility
+*	Removed 'google_key' from configuration area because Google Maps API v3 does not require a key
+*	Map on search page and other locations weren't using addMarkerByAddress/addMarker, which are the methods when working with SimpleGMaps
+* 	Resolved fatal error where SimpleGMaps was trying to edit private variable $zoomLevel, rather than work through setZoomLevel method
+*	Fixed an issue where hovering over an icon on the map without clicking it would show HTML code rather than the title of the listing
+*	On the default template, the template selection drop-down automatically added /demo/ to the URL
+*	Template header files were referencing Google Maps API v2 rather than V3 JS functions
+* 	Map marker links were missing the property type on the view listing page
+*	In UK postal code search.php replacement, there was a bug with strstr() using an array rather than a string
+*	Fixed a bug where some of the data on the viewlisting.php page would be duplicated (e.g., two MLS, two titles, etc.) due to the 'my_rowcode' function, which has been removed
+*	The 'blue' template, formerly the 'default' template, did not properly show CMS pages in the footer
+*	When editing accounts in admin/user control panels, an error was displayed if an email was being used twice, but didn't specify that
+*	Some links in email weren't clickable because the link HTML was missing in all of the language files
+*	ereg() function has been replaced with preg_match() since it is deprecated in PHP. It was breaking admin panel stats and other areas on servers with PHP 5.3+
+*	Tabs are no longer persistant in CT-* templates and 'blue' template, so they will revert back to their original state upon refresh/new listing
+* 	Removed GZip support since it was not frequently used and caused issues (e.g., when enabled, it would sometimes cause a blank screen due to the server not supporting the functionality)
+*	Added a check in defaults.php to see if language file exists before assigning it to prevent mistakes when selecting languages (e.g., lang=English instead of lang=english, thus rendering all text blank)
+*	When editing a listing, the form wouldn't show the currently set status properly
+*	Searching for listings to edit in the admin panel was extremely slow if there were a lot of locations in the system
+*	Seller accounts were not automatically being approved despite auto-approval being set
+*	Fixed a bug in db.php class where a query's insert ID wasn't being returned property
+* 	Fixed a bug in admin/mailer.php where the script would allow emails to be sent without entering in a subject or message
+*	Fixed a bug where the compare listing template (responsive) would produce an error if no packages were created and wasn’t sorting properly by position
+*	The multi-level location import was not always importing first level locations properly
+*	A broken image was displayed if a seller didn't have an image added
+*	Changed show/hide jQuery actions to toggles() in admin panel to make it impossible to accidentally hide input/textarea boxes without the ability to get it back again
+*	Removed session_register() from captcha
+
+MISC:
+
+*	Renamed 'CMS' to 'Page Manager'
+*	Renamed submit.php to register.php
+*	Renamed advsearchform.php to search_listings.php and separated out the seller search to search_sellers.php for more flexibility and different templates
+*	Renamed mail.php to contact.php
+*	Updated ionCube loader wizard to the latest version
+*	Removed set_magic_quotes_runtime because it has been deprecated in PHP
+*	Removed requirement that an administrator password must be alphanumeric only
+*	ionCube is now the only encoding system as Zend is not compatible with PHP 5.3+ and has become far too expensive to utilize
+* 	Updated 'agent' to 'seller' throughout English language file to make software more applicable for other purposes
+*	Retired banner.php and associated code because it had not been in use in quite some time
+*	Redundant PHPMAILER if/else statements removed throughout the software, replacing them with send_mailing() function
+*	Removed locations.txt, which used to generate an array of all locations
+*	All scripts with the prefix 'box_' have been moved to the modules/ dir since they are not standalone scripts
+*	Upgraded jQuery from v1.3.2 to v1.10.2 so development/customization can take advantage of new jQuery techniques/features
+*	Removed inline copyright comments from the top of most files to make it easier for branding/packaging a 'vanilla' version of the software
+*	Started general script cleanup to make the scripts more standardized and easier to read (reformatting/spacing/tabbing of code)
+*	Removed support for a custom str_split() function since PHP 5.+ is the new standard
+*	Removed support for MEncoder since it was not supported by most servers and was rarely utilized (instead, the video tour supports linking directly to video sites, such as YouTube or Vimeo) (/video directory has been removed as a result)
+*	Started improvements/modifications to the database layout, such as the addition of better indexes, primary keys, more efficient column types, etc.
+*	Retired the js.php file, which loaded JavaScript into the header. Instead, we're just loading the JavaScript into the header directly
+* 	Removed the ajaxDropDown.php and ajaxFavorites.php files in exchange for a single ajax.php file, located in includes/
+*	Added DEBUG constant in config.php, which will enable/disable errors from showing to help with general troubleshooting
+*	Removed flashgallery.php and the visited.php module as they were outdated/not used
+*	Retired CT-* templates as they are very outdated
+*	Removed captcha system as it was cracked by spam bots -- will replace with a better one in next release
+*	Merchant PHP scripts moved to includes/merchants/ for better organization and google.php/google.xml for Google Base, to /modules/google_base/
+*	All 'media' directories (banners, images, photos, uploads, gallery) have been moved to /media/banners, etc. for better organization and to make it easier to use a CDN provider to serve images
+* 	'fonts' dir has been moved to /includes/fonts/
+* 	'changelog' and 'version' files moved to /docs/ directory so they will be deleted after installation (/install and /docs should always be removed after installation or upgrade, not just renamed)
+*	validate.php will redirect the user to the log in page after approving their email, rather than just outputting a success message
+*	includes/common_footer.php file is now encoded and requires a key to unlock the copyright
+*	Completely redeveloped the search.php functionality to be cleaner, easier, and more secure
+*	common_footer.php and common_header.php are both encoded for future development purposes
+*	New package_check() function to remove redundant code throughout the software
+*	Removed image.php as it was no longer used
+*	Retired pdf.php in favor of a plug-n-play widget that is more updated/efficient
+*	Retired print.php in favor of a plug-n-play widget that is more updated/efficient
+*	Retired dhonishow as it was extremely dated and only used by now unsupported templates
+*	Removed flash support as it was dated and not supported by various operating systems (e.g., iOS)
+*	Removed the stats from being displayed in the index page of the admin panel. It is now in a separate area called 'Statistics' only and will be further extended in a future version
+*	Removed comparelistings.php as it was not very useful as it could only display a couple listings at a time and isn't found on most mainstream real estate sites
+*	Renamed /admin/config.php to /admin/settings.php to prevent an issue with mod_security
+* 	Split login.php into two separate files with their own template files -- login.php for logging in and user.php for managing the user's account
+*	Added ob_start() for output buffering to add header() redirects, etc. throughout the script
+*	The functionality that was in alertscontrol.php (used to activate/deactivate alerts) was removed to alerts.php and this file has been deleted
+*	Removed friend.php and replaced it with a 3rd party widget that offers a better user experience
+*	Added the MEDIA_PATH constant in the config.php file to make it easier to work with file uploads, etc.
+*	Revamped the multi-level location import tool and provided more explanation/examples
+*	Added pagination to the seller profile page (previously, it just showed all regardless of the amount of listings)
+*	Removed gallery.php as it was no longer needed. The new functionality is AJAX-driven and in /includes/ajax.php (processing the uploading of bulk images)
+*	Removed graph.php because it was extremely outdated
+*	Upgraded PHPMailer from 2.x to 5.x
+*	Removed /admin/stats.php because it was extremely outdated. Will be replaced with better statistics in the future
+*	Added better testing to determine if installation is required. If installation is required, it’ll redirect to the installer
+*	Removed the MySQL back up tool as phpMyAdmin and other tools are able to do this job with more flexibility / options (e.g., compressions, specific tables only, different formats, and so on)
+*	Cleaned up admin panel settings page and added qtip2 (tooltips) for easier readability and a cleaner interface
+*	Removed the option/requirement that titles must be unique
+*	Removed the requirement that a user's log in / password needed to be alphanumeric
+*	Added MEDIA_URL constant for config.php, useful for CDN support, external images, etc.
+*	Removed editgallery.php as the gallery/image functionality is on the same page as the add/edit listing functionality
+*	Images throughout the script are now referenced via their name in the database rather than a primary key (their name no longer corresponds to its primary key)
+*	Disabled a lot of modules/* files with a die() at the top as they are not currently in use/updated to work with the responsive template. In a future release, they will be either removed entirely or refreshed.

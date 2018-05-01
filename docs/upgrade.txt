@@ -1,0 +1,22 @@
+UPGRADE INSTRUCTIONS
+---------------------------------------------------------
+
+NOTE: PLEASE BACK UP YOUR SOFTWARE AND DATABASE PRIOR TO UPGRADING. WE DO NOT SUPPORT UPGRADING CUSTOMIZED VERSIONS OF REALTYSCRIPT.
+
+1.	Make a note of the current version you are running. You can do this by looking at the "version" file in the root directory or in the administration panel at the bottom. The version should also be in the config.php file at the bottom.
+
+2.	Upload all the files (EXCEPT FOR config.php and media/ and possibly /templates if you made any design changes) of the new version, overwriting the old files, using an FTP client. This may take upwards of 15 minutes to complete or longer depending upon your Internet connection.
+
+3.	Run the appropriate upgrade files, starting from the version you are currently running as determined in step 1. As an example, if you are currently using version 4.0.0, you would run the following (by entering in the URLs into your web browser):
+
+	http://www.yourdomain.com/docs/update400-401.php
+
+	http://www.yourdomain.com/docs/update401-402.php
+	
+	and so on up until the latest version.
+
+4.	You may have to modify some new settings in the Administration Panel > Configuration Panel area.
+
+WARNING: YOU MUST DELETE THE /DOCS AND /INSTALL DIRECTORIES COMPLETELY. PLEASE DO NOT SIMPLY RENAME THEM AS THIS REPRESENTS A SERIOUS SECURITY RISK.
+
+You should now have a fully upgraded version of RealtyScript running. If you have any questions, please contact us: http://www.realtyscript.com/support.php

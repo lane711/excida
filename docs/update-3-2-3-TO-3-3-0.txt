@@ -1,0 +1,44 @@
+UPDATE PMR 3.2.3 to 3.3.0
+------------------------------------------------------------------------------
+
+NOTE: Please see /docs/upgrade.txt for upgrade instructions.
+
+CHANGELOG:
++	Fixed bug with custom input fields not displaying the right values or any value at all
++	Added custom input fields and custom select fields to the print view, PDF generator, and advanced search form
++ 	Retired FCKEditor (the WYSIWYG built-in editor) with the new, latest version of CKEditor for the following areas:
+		CMS area, add/edit user listings area (for users/admins), admin 'send a message' area, and alerts 'send a message' area
++	For all CMS languages and listing descriptions/directions, the CKEditor will be used (formerly, just the default language used the WYSIWYG editor)
++	Fixed a line-ending bug in PHPMailer class that resulted in e-mail viewing problems on various clients
++	Bug fix for the wrong default listing status (e.g., expired) when editing listings in the admin panel
++	Fixed a bug where site would output an error when trying to delete a video that doesn't exist when adding/editing listings (user and admin areas)
++	Removed the 'School Reports' and 'Local Reports' to make the software more globally focused
+		and due to the BestPlaces company modifying the format of these included pages
++	Svenska has been renamed in all locations to Swedish for consistency (English versions of languages)
++	The live demonstration site at http://www.phpmyrealty.com/demo has been updated to this version (3.3.0)
++	Fixed a bug in the docs/update321-323.php file that didn't set collation/character sets correctly for 'fields' and 'values' tables
+
+UPDATE PMR 3.3.0 REVISIONS
++	Bug with calendar not viewing selected dates from the 1st to 9th of the month
++	Bug with map not loading (no longer requires an API key) (courtesy Chris M.)
+
+MODIFIED:
++	/admin/editlistings.php
++	/admin/addlistings.php
++	/edituserlistings.php
++	/adduserlistings.php
++	/pdf.php
++	/print.php
++	/viewlisting.php
++	/templates/default/tpl/property_detailed_print.tpl
++	/advsearchform.php
++	/search.php
++	/admin/cms.php
++	/admin/mailer.php
++	/admin/alertsMailer.php
++	/includes/phpmailer/class.phpmailer.php
++	[REMOVED]	/schools.php
++	[REMOVED]	/reports.php
++	/templates/CT-011/menu2.php
++	/templates/CT-006/menu2.php
++	/docs/update321-323.php

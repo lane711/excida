@@ -1,0 +1,218 @@
+UPDATE PMR 3.2.2 to 3.2.3
+------------------------------------------------------------------------------
+
+NOTE: Please see docs/upgrade.txt for upgrade instructions.
+
+Changelog:
+
++   Improved when and what to display for the slideshow on home page.
++   Fixed bugs for the JavaScript-based calendar.
++   Back ported missing language entries from English file to other languages.
++   Miscellaneous security fixes.
++   Deprecated languages/svenska.lng.php file for consistency with other
+    language file names. Use languages/swedish.lng.php instead.
++   Upgraded to Google Maps API JavaScript v3.
++   Added ability to turn on/off MLS field and Postal Code / ZIP Code field.
++   SEO improvement: Links to property listings now include the property title.
++   SEO improvement: Links to CMS pages fixed when friendly URLs (rewrite) are
+    enabled.
++   Added new constants for tables in config.php file.
++   Cleaned up some HTML output to be more standard compliant.
++   Fixed a bug in pdf.php where some variables were overwritten and their
+    values not displayed.
++   Fixed miscellaneous typographic errors.
++   Fixed cosmetic issues where users were prompted to upgrade account or
+    listing when there were no choices available.
++   Improved handling of JPEG images.
++   Fixed a bug where newlines were stripped in agent description.
++   Added ability to control whether duplicate listing titles are allowed.
++   Added ability to control whether two separate users can register with the
+    same email address.
++   Fixed a bug in template CT-006 with the dynamic location fields.
++   Fixed a bug in ordering display of the locations in some templates.
++   Added ability to customize the display format of numbers.
++   Improved the format of the email sent to users to confirm their email
+    address.
++   Added ability to add up to 10 custom fields to property listings.
++   Fixed several bugs related to free listings expiration.
++   Added ability to set a number of days for free listings to automatically
+    expire.
++   Added settings for rental price range, and associate it to listing types.
+
+UPDATE PMR 3.2.3 REVISIONS
++   Fixed a bug with string length in adduserlistings script (for both agents and admins)
++   Fixed a bug with inability to add a listing in agent control panel due to
+	'column count doesn't match value count at row 1' error message
++   Fixed a bug where alerts.php doesn't load due to a parse error
++   Fixed a bug with the mapping system where the address was not being added to the Google Maps URL correctly,
+	therefore, not returning the correct lat/long coordinates
++   Fixed a bug where the error() function in admin/edit_custom.php, adduserlistings.php (for admins/agents) did not
+	use the 2 required arguments (it only referenced one)
++   Fixed a bug where pages.php would mistakenly use title of article as a column name due to $menu being overwritten
++   Fixed a bug with comparelistings that broke the HTML of the comparison table
++   Fixed a bug where the lat/long coordinates in includes/functions/maps.php file were incorrectly reversed
++   Fixed a bug where upgrade to 3.2.3 would not use utf8 character set and collation for the fields/values tables
++   Fixed a bug where admins couldn't add a video to a listing because the upload input name was incorrect
++   Fixed a bug in admin/editusers.php where the zip code check was always being performed even if zip codes were disabled
++   Fixed a change with bestplaces.net updating their URLs, so School Reports and Local Reports were no longer working
+
+Changed / Added Files:
+
+    adduserlistings.php
+    admin/addlistings.php
+    admin/addusers.php
+    admin/config.php
+    admin/edit.php
+    admin/edit_custom.php
+    admin/editlistings.php
+    admin/editusers.php
+    admin/findlistings.php
+    admin/findusers.php
+    admin/locimport.php
+    admin/navigation.php
+    admin/template/index.html
+    admin/template/tpl/index.html
+    advsearchform.php
+    alerts.php
+    banners/index.html
+    banners/index.php
+    box-all-listings.php
+    box-featured.php
+    box-maps.php
+    box-mostvisited.php
+    box-prices.php
+    box-recent.php
+    box-slideshow.php
+    box-visited-side.php
+    box-visited.php
+    calculator.php
+    comparelistings.php
+    config.php
+    edituserlistings.php
+    favorites.php
+    fonts/index.html
+    fonts/index.php
+    gallery/index.html
+    gallery/index.php
+    images/index.html
+    images/index.php
+    includes/dhonishow/index.html
+    includes/FCKeditor/index.html
+    includes/flash/index.html
+    includes/fpdf_font/index.html
+    includes/functions.php
+    includes/functions/cron.php
+    includes/functions/favorites.php
+    includes/functions/filter.php
+    includes/functions/form.php
+    includes/functions/images.php
+    includes/functions/index.html
+    includes/functions/maps.php
+    includes/functions/system.php
+    includes/index.html
+    includes/index.php
+    includes/js.php
+    includes/js/index.html
+    includes/jsCalendar/calendar-setup.js
+    includes/jsCalendar/calendar.css
+    includes/jsCalendar/calendar.js
+    includes/jsCalendar/calendar.php
+    includes/jsCalendar/lang/calendar-bg.js
+    includes/jsCalendar/lang/calendar-big5.js
+    includes/jsCalendar/lang/calendar-big5-win.js
+    includes/jsCalendar/lang/calendar-cs.js
+    includes/jsCalendar/lang/calendar-de.js
+    includes/jsCalendar/lang/calendar-el.js
+    includes/jsCalendar/lang/calendar-en.js
+    includes/jsCalendar/lang/calendar-es.js
+    includes/jsCalendar/lang/calendar-fr.js
+    includes/jsCalendar/lang/calendar-he.js
+    includes/jsCalendar/lang/calendar-hr.js
+    includes/jsCalendar/lang/calendar-it.js
+    includes/jsCalendar/lang/calendar-ko.js
+    includes/jsCalendar/lang/calendar-lt.js
+    includes/jsCalendar/lang/calendar-pl.js
+    includes/jsCalendar/lang/calendar-pt.js
+    includes/jsCalendar/lang/calendar-ru.js
+    includes/jsCalendar/lang/calendar-ru_win_.js
+    includes/jsCalendar/lang/calendar-sp.js
+    includes/jsCalendar/lang/calendar-sv.js
+    includes/lightbox/index.html
+    includes/phpmailer/index.html
+    includes/xajax/index.html
+    index.php
+    install/install.php
+    ioncube/index.html
+    ioncube/index.php
+    languages/bulgarian.lng.php
+    languages/croatian.lng.php
+    languages/english.lng.php
+    languages/french.lng.php
+    languages/georgian.lng.php
+    languages/german.lng.php
+    languages/greek.lng.php
+    languages/index.php
+    languages/italian.lng.php
+    languages/portuguese.lng.php
+    languages/russian.lng.php
+    languages/settings.php
+    languages/spanish.lng.php
+    languages/svenska.lng.php
+    languages/swedish.lng.php
+    languages/vietnamese.lng.php
+    login.php
+    modules/index.html
+    modules/index.php
+    options.php
+    pdf.php
+    photos/index.html
+    photos/index.php
+    print.php
+    rss.php
+    search.php
+    sendmessage.php
+    sitemap.php
+    submit.php
+    templates/default/header.php
+    templates/default/menu2.php
+    templates/default/searchform.php
+    templates/default/searchFormMain.php
+    templates/default/style.css
+    templates/default/tpl/property_detailed.tpl
+    templates/index.php
+    upload/index.html
+    upload/index.php
+    video/index.html
+    video/index.php
+    viewlisting.php
+    viewuser.php
+    viewuserlistings.php
+    visited.php
+
+Changes / Added files for templates (see separate template package):
+
+    templates/CT-005/header.php
+    templates/CT-005/menu2.php
+    templates/CT-005/searchform.php
+    templates/CT-005/searchFormMain.php
+    templates/CT-005/style.css
+    templates/CT-005/tpl/property_detailed.tpl
+    templates/CT-006/header.php
+    templates/CT-006/menu2.php
+    templates/CT-006/searchform.php
+    templates/CT-006/searchform2.php
+    templates/CT-006/searchFormMain.php
+    templates/CT-006/style.css
+    templates/CT-006/tpl/property_detailed.tpl
+    templates/CT-007/header.php
+    templates/CT-007/menu2.php
+    templates/CT-007/searchform.php
+    templates/CT-007/searchFormMain.php
+    templates/CT-007/style.css
+    templates/CT-007/tpl/property_detailed.tpl
+    templates/CT-011/header.php
+    templates/CT-011/menu2.php
+    templates/CT-011/searchform.php
+    templates/CT-011/searchFormMain.php
+    templates/CT-011/style.css
+    templates/CT-011/tpl/property_detailed.tpl

@@ -1,0 +1,24 @@
+UPDATE PMR 3.2.0 to 3.2.1
+------------------------------------------------------------------------------
+
+Changelog:
+
++	(calculator.php, language files) Calculator file text has been moved into the language files
++	(includes/form.php) Fixed bug with URLs not working when a different language was selected other than English without translations for property types
++	(includes/functions.php) Fixed bug with features, additional out buildings, appliances not showing when a different language was selected other than English without a translation for that language
++	(admin/addlistings.php) In admin/addlistings.php, after adding a listing, a photo gallery link was displayed that had links to the agent panel, not the admin panel, thus causing an authentication error
++	(admin/addlistings.php) In admin/addlistings.php, added ability to upload a main image on the initial form
++	(admin/stats.php, language files) Admin/stats.php page will now show translations (if available)
++	(language files, box-slideshow.php) Previous / Next buttons are now in language files
++	(admin/cms.php) Fixed bug with CMS articles not being able to update immediately after submitting an update. (Two updates in a row due to ID not being properly set)
++	(admin/edit.php) Modified edit types/locations page to be similar to CMS Article Manager. Allows for easier updates and populates the language values not, rather than making the administrator enter in the translations all over again. Deletes require a confirmation prior to being deleted just like CMS. Also, languages are no longer statically added to this file but fully dynamic like the CMS manager.
++	(includes/Zend|ionCube/auth.php) Fixed issue with licensing that would disable web site if http://domain.com was accessed but work perfectly fine if http://www.domain.com was accessed.
++	(admin/addlistings.php) Error with duplicate `approved` fields being added to the INSERT query for new properties
++	(viewlistings.php, print.php, pdf.php, pages.php, sendmessages.php, viewuser.php) Fixed bug with ability to censor contact information not always working
++	(admin/zipimport.php, admin/locimport.php, admin/import.php, admin/idx.php) Added a reminder to use a UTF-8 complaint text editor / file format to preserve accent marks, etc., from various languages when uploading to the system
++	(install/install.php, docs/update320-320.php) LOCATIONS_TABLE database was not updated to support up to 30 languages so the upgrade script should be run to correct this.
++	(admin/templates/footer.php) Only admins will be able to see announcement and update information.
++	(advsearchform.php) <option value="5">5+</option> was missing from the selections
++	(admin/editadmins.php, admin/editusers.php, admin/index.php, login.php, submit.php, admin/addusers.php) Passwords are no longer having strtolower() applied to them which forces them to be lowercase.
++	(install/zip*.php) Default install of phpMyRealty 3.2.1 will now come with US Zip Codes
++	(options.php) Template selection drop down menu won't show 'php.ini' file if it exists

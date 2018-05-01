@@ -1,0 +1,42 @@
+UPDATE PMR 1.0.1 to 1.0.2
+------------------------------------------------------------------------------
+
+PLEASE NOTE THAT NEW LICENSE KEY IS REQUIRED FOR 1.0.2
+PLEASE, CONTACT PMR SUPPORT TO GET ONE.
+
+Rewrite the following files in your current PMR 1.0.1 installation to update to
+PMR version 1.0.2
+
+/banners folder added, please set the permissions to chmod 777 or rwxrwxrwx
+
+/banner.php - script added.
+
+/templates/default/header.php banner support added.
+
+/install/install.php - added the configuration values for banner height, width,
+size, added 'banner' field into the properties table (use update101-102.php to
+update your sql database, RUN IT DIRECTLY FROM THE /docs FOLDER)
+
+Zip codes database added, just let us know if you want the zip database to be
+added and we'll assist for free.
+
+/config.php - ZIP_TABLE constant added.
+
+/languages/english.lng.php - Listing Banner Section added, zip code radius 
+search texts added.
+
+/includes/functions.php - BANNER_UPLOAD, BANNER_REMOVE, SHOW_BANNER functions 
+added.
+
+/edituserlistings.php - added banners manipulation tools
+
+/admin/editlistings.php - added banners manipulation tools
+
+/admin/functions.php (ENCRYPTED) - some updates to the licensing system, new
+key is required, added banner support
+
+/template/default/searchform.php - zip radius search form added
+
+/advsearchform.php - zip radius search form added
+
+/search.php - zip code radius search added.

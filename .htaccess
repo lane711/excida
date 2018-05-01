@@ -1,0 +1,26 @@
+RewriteEngine On
+
+# Main Links
+
+RewriteRule ^(Agent|Realtor|Seller)/([0-9]+)\.html$ viewuser.php?id=$2 [L]
+RewriteRule ^Listing/(.+)/([0-9]+)_(.*)\.html$ viewlisting.php?id=$2 [L]
+RewriteRule ^Listing/(.+)/([0-9]+)\.html$ viewlisting.php?id=$2 [L]
+RewriteRule ^Type/(.+)/([0-9]+)\.html$ search.php?type=$2 [L]
+RewriteRule ^Mail/([0-9]+)\.html$ sendmessage.php?id=$1 [L]
+RewriteRule ^Mail/([0-9]+)-([0-9]+)\.html$ sendmessage.php?id=$1&listing=$2 [L]
+RewriteRule ^Gallery/(.+)-([0-9]+)\.html$ image.php?req=$1&id=$2 [L]
+RewriteRule ^Friend/([0-9]+)\.html$ friend.php?id=$1 [L]
+RewriteRule ^Article/([0-9]+)\.html$ pages.php?id=$1 [L]
+RewriteRule ^Pages/(.*).html$ pages.php?string=$1 [L]
+
+# Menu Links
+
+RewriteRule ^submit\.html$ register.php [L]
+RewriteRule ^search\.html$ advsearchform.php [L]
+RewriteRule ^contacts\.html$ usersearch.php [L]
+RewriteRule ^(.*).html$ $1.php [L]
+
+# Modules
+
+RewriteRule ^Location/(.+)/([0-9]+)\.html$ search.php?location=$2 [L]
+RewriteRule ^Price/([0-9]+)-([0-9]+)\.html$ search.php?price_min=$1&price_max=$2 [L]

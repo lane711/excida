@@ -1,0 +1,193 @@
+UPDATE PMR 1.0.3 to 1.0.4
+------------------------------------------------------------------------------
+
+Features:
+
+-   PayPal packages for agents (includes package name, price, duration in days,
+    number of listings per package, number of gallery images per listing,
+    listing main image enable/disable, agent photo/logo enable/disable,
+    address, phone enable/disable);
+-   Compare Featured Packages page;
+-   Print Listing link;
+-   Listing Alerts;
+-   'Agents Online' module added (show logged in agents);
+-   Pagination in the image gallery (view full size image);
+-   Ability to remove listings via agent control panel;
+-   UTF-8 support and all the required translating functions added;
+-   'default' template is no longer supported and not included into the package;
+-   Favorite listings;
+-   Location & Prices modules added into the standard package;
+-   'No image' picture is used if no image uploaded for photo gallery, user
+    photo, listing main image;
+-   Ability to set the number of rows in the property types module;
+-   Photo Gallery 'image upload' and 'photo information' forms are now joined;
+-   Icon set added to the listing detailed template;
+-   Photo Gallery Bulk Photos Upload tool.
+
+Rewrite or add the following files to your current PMR 1.0.3 installation to 
+update to PMR version 1.0.4 (we recommend update all the scripts you have, just
+update config.php manually, not to remove important configuration settings).
+
+--
+
+The updated files list by feature:
+
+--  PAYPAL AGENT PACKAGES
+
+/install/install.php - new table PACKAGES_AGENT_TABLE added
+
+/config.php - new table constant PACKAGES_AGENT_TABLE added
+
+/admin/addusers.php - ability to set package
+
+/admin/editusers.php - ability to set package
+
+/admin/agentpackages.php - set the packages tool
+
+/includes/functions.php - agent update/downgrade packages function added
+
+/languages/english.lng.php - package texts added
+
+/adduserlistings.php - added number of listings control
+
+/cron.php - automatic upgrade / downgrade for agent listings + email notification
+
+/editgallery.php - number of uploaded images control 
+
+/search.php - show/hide options for image/photo/phone/address
+
+/usersearch.php - show/hide options for image/photo/phone/address
+
+/login.php - upgrade buttons
+
+/viewlisting.php - show/hide options for image/photo/phone/address
+
+/viewuser.php - show/hide options for image/photo/phone/address
+
+--  COMPARE PACKAGES PAGE
+
+/languages/english.lng.php
+
+/compare.php
+
+.htaccess
+
+--  PRINT LISTING LINK
+
+/print.php - print listing functions
+
+/languages/english.lng.php - Pring Listing variable added
+
+/templates/*/header-print.php
+/templates/*/footer-print.php
+/templates/tpl/property_detailed_print.tpl
+
+- template files to be added into all templates.
+
+{print} variable to be added into all property_detailed.tpl templates.
+
+-- LISTING ALERTS
+
+/install.php - new table added ALERTS_TABLE
+
+/config.php - new table constant added ALERTS_TABLE
+
+/alerts.php - alerts subscription
+
+/alertscontrol.php - approve, unsubscribe functions
+
+/adduserlistings.php - added mailer code to email the new listing to all
+			the subscribers
+
+/admin/addlistings.php - added mailer code to email the new listing to all
+			the subscribers
+
+/languages/english.lng.php - texts and email templates for Listing Alerts added
+
+/templates/*/menu.php - alerts link added
+
+/admin/findlistings.php - alerts about approved listings
+
+--  AGENTS ONLINE
+   
+/online.php
+
+/templates/*/header.php or footer.php - include("online.php")
+
+/config.php - ONLINE_TABLE constant added
+
+/install.php - new table for Agents Online added
+
+--  PAGINATION IN IMAGE.PHP
+
+/image.php
+
+--  FEATURED PACKAGE EXPIRATION WARNING
+
+/cron.php
+/languages/english.lng.php
+
+--  ABILITY TO REMOVE LISTINGS VIA AGENT PANEL
+
+/includes/functions.php
+/edituserlistings.php
+/languages/english.lng.php - $lang['Listing_Remove'] added
+
+--  UTF-8 SUPPORT
+
+/includes/entity.php - entities transaltion functions
+
+/defaults.php - include entity.php code
+
+/includes/functions.php - safehtml & unsafehml functions updated
+
+/includes/mail.php - mail class changed to support utf-8
+
+/languages/english.lng.php - converted to utf-8 and the new codepage set as default
+
+--  FAVORITE LISTINGS
+
+/includes/functions.php
+/viewlisting.php
+/template/*/menu.php
+/languages/english.lng.php
+/template/*/tpl/property_detailed.tpl
+
+--  PRICES AND LOCATIONS MODULES INCLUDED
+
+/locations.php
+/prices.php
+.htaccess
+
+--  'NO IMAGE' DEFAULT PICTURE
+
+/includes/functions.php
+/images/empty.jpg
+/gallery/empty.jpg
+/photos/empty.jpg
+
+--  SET ROWS IN THE PROPERTY TYPES MODULE
+
+/types.php
+
+--  JOINED FORMS IN PHOTO GALLERY
+
+/editgallery.php
+/admin/editgallery.php
+
+--  ICON SET ADDED TO THE LISTING DETAILED TEMPLATE
+
+/includes/functions.php
+/viewlisting.php
+/viewuser.php
+/templates/*/tpl/property_detailed.tpl
+/templates/*/images/icons/*
+
+-- BULK PHOTOS UPLOAD
+
+/languages/english.lng.php
+/gallery.php
+/edituserlistings.php
+
+
+===

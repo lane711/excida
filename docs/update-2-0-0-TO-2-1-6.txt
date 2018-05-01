@@ -1,0 +1,36 @@
+UPDATE PMR 2.0.0 to 2.1.6
+------------------------------------------------------------------------------
+
+Features:
+
+1.  Google maps class updated to support UTF-8 codepage and latest google maps
+    updates (/includes/maps.php)
+
+2.  /search.php and /locations.php updated to fix the possible SQL injection.
+    (/search.php, /locations.php)
+
+3.  /search.php 'Find on the map' updated to support correct address in the 
+    icon link (/search.php)
+
+4.  safehtml/unsafehtml and removehtml functions improved/updated 
+    (may fail on some php4.x.x). (/includes/functions.php)
+
+5.  Video upload/conversion tool updated (/edituserlistings.php)
+
+6.  pdf.php updated to correctly process the 'new line' marker (/pdf.php)
+
+7.  types.php updated to correctly process the multilanguage property types (/types.php)
+
+8.  Admin can view alerts added to the system (can not control that for now) (/admin/alerts.php)
+
+9.  IDX import is possible using the IDX import tool in admin (/admin/idx.php)
+
+10. 3-level Locations CSV Import tool added (/admin/locimport.php)
+
+
+--
+Rewrite or add the following files to your current PMR 2.0.0 installation to 
+update to PMR version 2.1.6 (we recommend to update all the scripts you have, just
+update config.php manually, not to remove important configuration settings).
+
+===

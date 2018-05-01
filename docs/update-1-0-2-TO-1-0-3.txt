@@ -1,0 +1,102 @@
+UPDATE PMR 1.0.2 to 1.0.3
+------------------------------------------------------------------------------
+
+Features:
+
+- Paypal payments for listings featured period;
+- Slide Show function added for the Photo Gallrty images;
+- XML/RSS feed, Live Bookmarks for new agents and listings;
+- Mortgage Calculator (english only);
+- Mail to a friend (for listings only)
+
+Fixes:
+
+- /includes/mail.php - Mail Class, email headers fix.
+
+Rewrite or add the following files to your current PMR 1.0.2 installation to 
+update to PMR version 1.0.3
+
+-- PAYPAL
+
+/paypal.php - paypal IPN module, receives the IPN reply from the Paypal server
+and updates listing featured period
+
+/admin/packages.php - paypal featured packages editing tool
+
+/install/install.php - added the configuration values for paypal
+(use update102-103.php to update your sql database, RUN IT DIRECTLY FROM 
+THE /docs FOLDER)
+
+/config.php - new constant for PACKAGES_TABLE added.
+
+/admin/navigation.php - added Packages link in the Configuration Setting menu.
+
+/languages/english.lng.php - added paypal texts.
+
+/includes/functions.php - added update_package and generate_packages_list
+functions.
+
+/admin/addlistings.php - packages support added.
+
+/admin/editlistings.php - packages support added.
+
+/edituserlistings.php - packages support added.
+
+-- SLIDE SHOW
+
+/includes/functions.php - upload_gallery_image function added.
+
+/editgallery.php - upload_gallery_image support added.
+
+/admin/editgallery.php - upload_gallery_image support added.
+
+/viewlisting.php - {slideshow} support added
+
+/templates/default/tpl/property_detailed.tpl - {slideshow} support added
+
+-- RSS FEED
+
+/rss.php - rss feed generator added
+
+/xml.gif - xml icon image added
+
+/templates/default/menu.php - xml link added
+
+-- SOME TEMPLATE CHANGES
+
+/templates/default/tables.php - rounded corners added to the tables, no more
+dotted borders.
+
+/templates/default/images/ug_***_***.gif, x.gif - rounded corners images
+
+-- MORTGAGE CALCULATOR
+
+/calculator.php - the calculator code
+
+/templates/default/menu.php - calculator menu item added
+
+/languages/english.lng.php - calcualtor texts added
+
+.htaccess - calculator.html rewrite rule added
+
+-- MAIL TO A FRIEND
+
+/friend.php - the code
+
+.htaccess - friend.html rewrite rule added
+
+/languages/english.lng.php - mail to a friend texts added
+
+/templates/default/tpl/property_detailed.tpl - mail a friend tag added
+
+--
+
+/version - updated to 1.0.3
+
+--
+
+/includes/mail.php - some code fixes
+
+--
+
+PMR 1.0.3 (c)06 phpMyRealty.com

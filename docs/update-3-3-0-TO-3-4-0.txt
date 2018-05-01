@@ -1,0 +1,12 @@
+UPDATE PMR 3.3.0 to 3.4.0
+------------------------------------------------------------------------------
+
+NOTE: Please see /docs/upgrade.txt for upgrade instructions.
+
+CHANGELOG:
++	New template (web 2.0 style)
++	General bug fixes to improve stability
++	Security patch to search.php (seed should be removed, so just RAND() is used)
+
+UPDATE PMR 3.4.0 REVISIONS
++	'default' template displayed static numbers for bedrooms, bathrooms, garages

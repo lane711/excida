@@ -1,0 +1,32 @@
+UPDATE PMR 1.0 stable to 1.0.1 stable
+------------------------------------------------------------------------------
+
+Rewrite the following files in your current PMR 1.0 installation to update to
+PMR version 1.0.1
+
+/install/install.php - fixed issue with the word <title> in variable description
+this prevented the complete opening of the configuration panel window in IE6
+(please note that this file is not required in you have already installed the
+script).
+
+/languages/english.lng.php - the email templates added for:
+ - email to the administrator about new realtor submission
+ - email to the administrator about new listing submission
+ - email to the user about the realtor/agent submission
+ - email to the user about the user approval
+ - email to the user about the listing approval
+ - email to the user about user/listing rejected
+
+/admin/template/tpl/listing-short.tpl - added {city} after {location}
+
+/submit.php - added support for the admin notification email about a new user
+submission (if approval is enabled), added user notification email about submission
+
+/adduserlistings.php - added support for the admin notification email 
+about a new listing submission (if approval is enabled)
+
+/admin/findusers.php - added support for the user notification email
+about an approved/rejected realtor/agent (if approval is enabled)
+
+/admin/findlistings.php - added support for the user notification email
+about an approved/rejected listing (if approval is enabled)

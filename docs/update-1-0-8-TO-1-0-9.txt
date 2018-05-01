@@ -1,0 +1,44 @@
+UPDATE PMR 1.0.8 to 1.0.9
+------------------------------------------------------------------------------
+
+Features:
+
+1   New Licensing System, no more problems with the IP change! 
+    New License Key is required. 
+    Zend Opmtimizer is required.
+
+2   Simple CSV export tool added
+
+--
+
+1   New Licensing System, no more problems with the IP change! 
+
+/admin/functions.php
+/admin/dbbackup.php
+/admin/cms.php
+/admin/config.php
+
+/includes/functions.php
+/includes/filter.php
+/includes/maps.php
+/includes/zip.php
+/includes/packages.php
+
+/defaults.php
+
+/templates/default/header.php
+
+--
+
+2   Simple CSV export tool added
+
+/admin/export.php
+/admin/navigation.php
+
+--
+
+Rewrite or add the following files to your current PMR 1.0.8 installation to 
+update to PMR version 1.0.9 (we recommend update all the scripts you have, just
+update config.php manually, not to remove important configuration settings).
+
+===

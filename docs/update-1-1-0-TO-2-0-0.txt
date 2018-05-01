@@ -1,0 +1,38 @@
+UPDATE PMR 1.1.0 to 2.0.0
+------------------------------------------------------------------------------
+
+Features:
+
+1   New feature added into the search form, now keyword field looks into the
+    title and description and uses comma separated keywords.
+
+2.  3-level locations added into listings.
+
+3.  Fixed google maps geocoding function to support google geocoding, not yahoo.
+
+4.  Google Maps now support CURL instead of file_get_contents via URL.
+
+5.  Multilanguage support added to Property Types, Agent Locations, Listing Types,
+    Styles, Garage Types, Basement, Features, Appliances, Additional Out Buildings
+    field.
+
+6.  safehtml/unsafehtml and removehtml functions improved/updated 
+    (may fail on some php4.x.x).
+
+7.  Video upload/conversion tool (needs 'mencoder' to be available on your host)
+
+8.  The video player will now replace the photogallery window on the top of the
+    listing detailed page.
+
+9.  Google Base xml feed fixed to show correct code.
+
+10. Complete IonCube support added, no Zend Optimizer any more.
+
+11. New default template added PMR CT-010.
+
+--
+Rewrite or add the following files to your current PMR 1.1.0 installation to 
+update to PMR version 2.0.0 (we recommend to update all the scripts you have, just
+update config.php manually, not to remove important configuration settings).
+
+===

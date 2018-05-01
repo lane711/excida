@@ -1,0 +1,388 @@
+html
+{
+	display : inline;
+}
+
+body
+{
+	font-family : Helvetica;
+	font-size : 12px; 
+	background-color : #FFFFFF;
+	margin : 0px; 
+} 
+
+br 
+{
+	line-height : 12px;
+	margin : 0; 
+} 
+
+a 
+{
+	font-family : Helvetica;
+	font-size : 12px; 
+	color : #006699; 
+	text-decoration : none; 
+}
+
+a:hover 
+{
+	font-family : Helvetica;
+	font-size : 12px; 
+	color : #DD6900; 
+	text-decoration : underline; 
+} 
+
+input, select, textarea
+{
+	font-family : Helvetica;
+	font-size : 12px; 
+	background-color : white; 
+	border : 1px solid #BABABA;
+	margin : 2px; 
+	-webkit-border-radius: 5px;
+	-khtml-border-radius: 5px;	
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	padding: 6px 0 6px 0;
+	text-indent: 6px;
+} 
+
+input[type=submit]
+{
+	background-color: #02344A;
+	color: #fff;
+	font-weight: bold;
+	border: 0px;	
+	padding: 10px;
+	cursor: pointer;
+}
+
+input[type=submit]:hover
+{
+	background-color: #0581B5;	
+}
+
+ul
+{
+ 	margin: 0px;
+	padding: 0px;
+}
+
+li
+{
+	font-family : Helvetica;
+	font-size : 13px;
+	margin : 5px;
+	padding : 0px;
+	list-style : none;
+  	padding-left: 15px;
+  	background-image: url(./images/arrow.png);
+  	background-repeat: no-repeat;
+  	background-position: left 6px;
+}
+
+td
+{
+	font-family : Helvetica;
+	font-size : 12px; 
+	color : #000000;
+} 
+
+form 
+{
+	font-family : Helvetica;
+	font-size : 12px; 
+	border-width : 0; 
+	padding : 0; 
+	margin : 0; 
+	display: inline;
+} 
+
+.table_header_text
+{
+	font-family : Helvetica;
+	font-size : 13px; 
+	font-weight : bold;
+	color: #ffffff;
+}
+
+.warning
+{
+	font-family : Helvetica;
+	font-size : 12px; 
+	font-weight : bold; 
+	color : red; 
+}
+
+.bold
+{
+	font-family : Helvetica, serif;
+	font-size : 13px; 
+	font-weight : bold; 
+	color : #006699;
+	text-decoration : underline; 
+}
+
+.title
+{
+	font-family : Helvetica;
+	font-size : 15px; 
+	font-weight : bold; 
+	color : #006699;
+}
+
+.price
+{
+	font-family : Helvetica;
+	font-size : 13px; 
+	font-weight : bold; 
+	color : #5678A2;
+}
+
+.timings
+{
+	font-family : Helvetica, serif;
+	font-size : 12px; 
+	color : #222222;
+}
+
+.top_background
+{
+  	background-image: url(./images/title-back.gif);
+  	background-repeat: repeat;
+}
+
+.topmenu
+{
+	font-family : Helvetica;
+	font-size : 12px; 
+	color: #222222;
+}
+
+.images
+{
+	border : 1px solid #BABABA;
+}
+
+.line_white_left {border-left: solid 1px #D0DBE3}
+.line_white_right {border-right: solid 1px #D0DBE3}
+.line_white_top {border-top: solid 1px #D0DBE3}
+.line_white_bottom {border-bottom: solid 1px #D0DBE3}
+
+.submit
+{
+	font-weight : bold;
+	background : #65ABD3; 
+	color : white;
+}
+
+h2
+{
+	font-family : Helvetica;
+	font-size : 12px; 
+	font-weight : bold;
+	color : #FF7F00;
+}
+
+td.border1
+{
+    border-left : 1px solid #D4DEE5;
+    border-right : 1px solid #D4DEE5;
+}
+
+.table-header
+{
+	width: 100%;
+	background-color: #02344A;
+	color: #fff;
+	font-weight: bold;
+	text-indent: 10px;
+	padding: 8px 0 8px 0;
+	margin: 0;
+	-webkit-border-top-left-radius: 5px;
+	-khtml-border-radius-topleft: 5px;	
+	-moz-border-radius-topleft: 5px;
+	border-top-left-radius: 5px;
+	-webkit-border-top-right-radius: 5px;
+	-khtml-border-radius-topright: 5px;	
+	-moz-border-radius-topright: 5px;
+	border-top-right-radius: 5px;
+	text-align: left;
+	clear: both;
+}
+
+.table-body
+{
+	border-left: 1px solid #02344A;
+	border-right: 1px solid #02344A;
+	border-bottom: 1px solid #02344A;
+	margin-bottom: 15px;
+	-webkit-border-bottom-left-radius: 5px;
+	-khtml-border-radius-bottomleft: 5px;	
+	-moz-border-radius-bottomleft: 5px;
+	border-bottom-left-radius: 5px;
+	-webkit-border-bottom-right-radius: 5px;
+	-khtml-border-radius-bottomright: 5px;	
+	-moz-border-radius-bottomright: 5px;
+	border-bottom-right-radius: 5px;
+	clear: both;
+	padding: 10px 0 10px 0;
+}
+
+.table-inner
+{
+	width: 95%;
+	margin: 0 auto;
+	padding: 15px 0;
+	text-align: left;
+}
+
+.clearfix:after {
+     visibility: hidden;
+     display: block;
+     font-size: 0;
+     content: " ";
+     clear: both;
+     height: 0;
+     }
+.clearfix { display: inline-block; }
+/* start commented backslash hack \*/
+* html .clearfix { height: 1%; }
+.clearfix { display: block; }
+/* close commented backslash hack */
+
+.admin-nav
+{
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	list-style: none;
+}
+
+.admin-nav li
+ {
+	display: inline-block;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	text-align: center;
+}
+
+.admin-nav li div[class^=icon]
+{
+	font-size:36px;
+	margin: 0 0 15px 0;
+	padding: 0;
+}
+
+.admin-nav li a:hover
+{
+	text-decoration: none;
+}
+
+.col1, .col2, .col3, .col4, .col5, .col6, .col7, .col8, .col9, .col10, .col11, .col12
+{
+	float: left;
+	margin: 0 3% 0 0;
+	text-align: left;
+	padding: 0 0 4px 0;
+}
+
+.col1.last, .col2.last, .col3.last, .col4.last, .col5.last, .col6.last, .col7.last, .col8.last, .col9.last, .col10.last, .col11.last, .col12, .last
+{
+	margin: 0;
+	text-align: left;
+}
+
+.col1 { width: 5.5%; }
+.col2 { width: 14%; }
+.col3 { width: 22.5%; }
+.col4 { width: 31%; }
+.col5 { width: 39.5%; }
+.col6 { width: 48%; }
+.col7 { width: 56.5%; }
+.col8 { width: 65%; }
+.col9 { width: 73.5%; }
+.col10 { width: 82%; }
+.col11 { width: 90.5%; }
+.col12 { width: 99%; margin: 0; }
+
+
+
+@media only screen and (max-width: 768px)
+{
+	body
+	{
+		margin: 0px;
+	}
+	
+	table
+	{
+		width: 100%;
+		padding: 0;
+		margin: 0;
+	}
+	
+	.table-body
+	{
+		margin: 0 0 15px 0;
+		padding: 0;
+	}
+	
+	.table-inner
+	{
+		width: 95%;
+		margin: 0 auto;
+		word-break: break-all;
+	}
+	
+	.admin-nav img,
+	.admin-nav li div[class^=icon]
+	{
+		display: none;
+	}
+	
+	.admin-nav li
+	{
+		width: 100% !important;
+		display: block;
+		border-bottom: 1px solid #c0c0c0;		
+	}
+	
+	.admin-nav li:last-child {
+		border-bottom: 0px;
+	}
+	
+	.admin-nav li a:hover
+	{
+		background-color: #0581B5;
+		color: #fff;
+	}
+	
+	.admin-nav li a
+	{
+		display: block;
+		padding: 6px 0 6px 0;
+		text-decoration: none;
+		font-weight: bold;
+	}
+	
+	input,
+	textarea
+	{
+		width: 100%;
+	}
+	
+	.col1, .col2, .col3, .col4, .col5, .col6, .col7, .col8, .col9, .col10, .col11, .col12
+	{
+		width: 100%;
+		float: none;
+		padding: 0 0 8px 0;
+	}
+	
+	.last
+	{
+		padding: 0 0 15px 0;
+	}
+}

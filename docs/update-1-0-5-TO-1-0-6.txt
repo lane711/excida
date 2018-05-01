@@ -1,0 +1,97 @@
+UPDATE PMR 1.0.5 to 1.0.6
+------------------------------------------------------------------------------
+
+Features:
+
+-   Agent Search Results Sorting Options
+-   New Agents Account Email Verification
+-   Mailer in administrator panel to email the site agents
+-   RSS feed fixed to support UTF-8
+-   Multiple locations simple search on the home page
+-   Security Code for the agent submission form, and all the mailers
+-   Compare Listings
+-   Contact Administrator Form
+-   Listing Types editor added into admin
+-   Listings Search Results Sorting Options
+-   Sitemap & Google base feed
+
+Rewrite or add the following files to your current PMR 1.0.5 installation to 
+update to PMR version 1.0.6 (we recommend update all the scripts you have, just
+update config.php manually, not to remove important configuration settings).
+
+--
+
+The updated files list by feature:
+
+--  Agent Search Results Sorting Options
+
+/usersearch.php - sort by options added
+
+--  New Agents Account Email Verification
+
+/submit.php - email user a verification link if approval by admin is disabled
+/validation.php - the user approval tool
+/languages/language.en.php - the verification texts added.
+/install/install.php - new field added into users table
+
+--  Mailer in administrator panel to email the site agents
+
+/admin/mailer.php - admin mailer tool
+/admin/navigation.php - a menu item for mailer added
+/languages/english.lng.php - admin mailer variables added
+
+-- RSS Feed fixed to support UTF-8
+
+/rss.php
+
+-- Multiple locations simple search on the home page
+
+/search.php
+/templates/default/searchform2.php
+
+-- Security Code for the agent submission form
+
+/submit.php
+/fonts/font.ttf
+/security.php
+/security.jpg 
+/languages/language.en.php
+
+/sendmessage.php
+/friend.php
+/mail.php
+
+-- Compare Listings
+
+/comparelistings.php
+/templates/default/tpl/property_compare.tpl
+/templates/default/tpl/property_search_short.tpl
+/search.php
+/favorites.php
+/featured.php
+/recent.php
+/mostvisited.php
+/viewuserlistings.php
+/languages/english.lng.php
+
+-- Contact Administrator Form
+
+/mail.php
+/templates/default/menu.php
+
+-- Listing Types editor added into admin
+
+/admin/navigation.php
+/admin/edit.php
+
+-- Listings Search Results Sorting Options
+
+/search.php
+
+-- Sitemap & Google base feed
+
+/sitemap.php
+/templates/default/menu.php
+/google.php
+
+===

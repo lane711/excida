@@ -1,0 +1,92 @@
+UPDATE PMR 2.1.6 to 3.0.0
+------------------------------------------------------------------------------
+
+Features:
+
+1.  Google maps class updated to support UTF-8 codepage and latest google maps
+    updates, xml2array() function updated to support PHP5 routines. Also
+    latitude/longitude fields added for each listing so user can specify
+    the exact location on the map if the address is not recognized by the
+    google geocoding service.
+
+2.  Availability calendar added into the agent control panel. Now agent can
+    select multiple dates in a calendar popul and have the calendar visible 
+    on the listing detailed page.
+
+3.  New Flash SlideShow added. (contact us if you want to get the licensed
+    version without the copyright logo on top-right corner of the image).
+
+4.  Function files updated, most of the functions rewritten and relocated
+    for better perfomance.
+
+5.  'Send Message' form now supports listing ID and includes listing title 
+    into the message to an agent.
+
+6.  'Recently Visited Listings' feature added onto the index page and the
+    listing detailed page. Now system can store number of listings visited
+    by the visitor and show those listings on the index page and the listing
+    detailed page.
+
+7.  'Find on The Map' feature added to the index page to find all the listings on
+    the google maps. (works if there are less than 200 listings in the db)
+    Disabled by default.
+
+    'Find on The Map' feature added right to the listing detailed page and the
+    icon wiht the link to the old map is removed.
+
+8.  phpMailer class is now used to send email messages with html content.
+    May support mail(), sendmail and smtp/gmail.
+
+9.  The 3 level locations system is completely rewritten using Ajax.
+    No need to add all the levels for all locations now. The dropdown
+    menus for locations are loaded right from the database without the 
+    'old style' text file with locations and complete locations list
+    preload in the header.
+
+10. Tabbed browsing added to index page and listing detailed template.
+
+11. Featured listings functions rewritten completely using Ajax. Now user
+    can select the listing to make it featured on the search results page or
+    on the listing detailed page without reloading the page.
+
+12. Licensing system is rewritten and now require different license key.
+    Existing customers can request a new license for 1 year and renew it 
+    when needed for free.
+
+13. HTML to XHTML conversion started, most of the template files are rewritten
+    and reorganized for better perfomance and user-friendly look.
+
+14. Dynamic meta tags added for listing detailed page and user detailed page.
+    Now title will include user name/surname or listing title, description
+    meta tag will include part of the listing or user description and 
+    keywords tag will include part of the address, property type, listing type,
+    mls and other details.
+
+15. Captcha functions are rewritten completely for better perfomance and much
+    complex image to prevent spam user/listing submissions and emails.
+
+16. Mortgage Calculator now shows the currency set in the configuration panel.
+
+17. Administrator panel can be secured now by setting the allowed IP address or
+    range of IPs in the configuration file. (e.g 127.0.0.* or 127.*;10.0.*;192.168.1.1)
+
+18. Generated PDF detailed listing page now includes photo gallery images.
+
+19. Search form is updated to have Bedrooms and Bathrooms set as a dropdown
+    field and now use the 'equal or more' logic.
+
+20. Search using the keyword field now returns results based on title, 
+    description, any level of location, zip code, mls, id or property 
+    type.
+
+21. The captcha font is updated.
+
+22. Primitive 'additonal module' script added to add the modifications to
+    the script functions without changing the script core files.
+
+--
+With 3.0.0 release we recommend to update all the scripts you have, 
+make sure to update config.php manually, not to remove important 
+configuration settings.
+
+===

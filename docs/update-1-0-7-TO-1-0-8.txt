@@ -1,0 +1,117 @@
+UPDATE PMR 1.0.7 to 1.0.8
+------------------------------------------------------------------------------
+
+Features:
+
+1   Lightbox 2.0 integrated into the Photo Gallery
+2   base.google.com export tool updated
+3   Main listing image now appears in the slideshow window
+4   Photo Gallery images on the detailed listing page now appear in 3 rows
+5   Language and Template selection improved
+6   New CMS tool integrated into the listing descriptions and CMS 
+    in administrator
+7   Safehtml and Unsafehtml functions are completely rewritten, now
+    utf-8 characters are stored in the database as utf-8 and not as
+    html entities, please note this before upgrading. Your old data will
+    require some manipulations.
+8   Banner ads or text ads appear in the middle of the search results
+9   Price field in listing submission form do not require .00 any more
+    (possibly a database table change is required, please, 
+    email us to have that done)
+10  Google maps appear on the property search page with all the found listings
+
+--
+
+1   Lightbox 2.0 integrated into the Photo Gallery
+
+/includes/js.php
+/includes/functions.php
+/includes/lightbox/*
+/viewlisting.php
+
+Lightbox 2.0 is now a part of PMR, you can try it by clicking the photo 
+gallery image at the bottom of the detailed listing page. Please, make 
+sure to wait until the page loads completely.
+
+--
+
+2   base.google.com export tool updated
+
+/google.php
+
+--
+
+3   Main listing image now appears in the slideshow window
+
+/viewlisting.php
+
+--
+
+4   Photo Gallery images on the detailed listing page now appear in 3 rows
+
+/viewlisting.php
+/templates/default/tpl/gallery.tpl
+
+--
+
+5   Language and Template selection improved
+
+/defaults.php
+
+language and template names are now stored in the session variable, not in 
+the cookie as this caused problems.
+
+--
+
+6   New CMS tool integrated into the descriptions
+
+/includes/FCKeditor
+/adduserlistings.php
+/edituserlistings.php
+/admin/addlistings.php
+/admin/editlistings.php
+/admin/cms.php
+/templates/default/header.php
+/admin/template/header.php
+
+--
+
+7   Safehtml and Unsafehtml functions are completely rewritten, now
+    utf-8 characters are stored in the database as utf-8 and not as
+    html entities, please note this before upgrading. Your old data will
+    require some manipulations.
+
+/includes/functions.php
+
+--
+
+8   Banner ad or text ad appear in the middle of the search results
+
+/search.php
+/templates/default/tpl/property_search_short_ad.tpl
+
+--
+
+9   Price field in listing submission form do not require .00 any more
+
+/install/install.php
+/adduserlistings.php
+/edituserlistings.php
+/admin/addlistings.php
+/admin/editlistings.php
+
+--
+
+10  Google maps appear on the property search page with all the found listings
+
+/includes/phoogle.php
+/templates/default/header.php
+/search.php
+
+--
+
+Rewrite or add the following files to your current PMR 1.0.7 installation to 
+update to PMR version 1.0.8 (we recommend update all the scripts you have, just
+update config.php manually, not to remove important configuration settings).
+
+===
