@@ -1,69 +1,127 @@
-<?php //0046b
-if(!extension_loaded('ionCube Loader')){$__oc=strtolower(substr(php_uname(),0,3));$__ln='ioncube_loader_'.$__oc.'_'.substr(phpversion(),0,3).(($__oc=='win')?'.dll':'.so');if(function_exists('dl')){@dl($__ln);}if(function_exists('_il_exec')){return _il_exec();}$__ln='/ioncube/'.$__ln;$__oid=$__id=realpath(ini_get('extension_dir'));$__here=dirname(__FILE__);if(strlen($__id)>1&&$__id[1]==':'){$__id=str_replace('\\','/',substr($__id,2));$__here=str_replace('\\','/',substr($__here,2));}$__rd=str_repeat('/..',substr_count($__id,'/')).$__here.'/';$__i=strlen($__rd);while($__i--){if($__rd[$__i]=='/'){$__lp=substr($__rd,0,$__i).$__ln;if(file_exists($__oid.$__lp)){$__ln=$__lp;break;}}}if(function_exists('dl')){@dl($__ln);}}else{die('The file '.__FILE__." is corrupted.\n");}if(function_exists('_il_exec')){return _il_exec();}echo('Site error: the file <b>'.__FILE__.'</b> requires the ionCube PHP Loader '.basename($__ln).' to be installed by the website operator. If you are the website operator please use the <a href="http://www.ioncube.com/lw/">ionCube Loader Wizard</a> to assist with installation.');exit(199);
+<?php
+
+define( 'M_TO_KM_FACTOR', 1.609344 );
+
+// Either KM or M
+define( 'MODE', 'KM' );
+
+// US zip codes
+
+// ZIP CODE RADIUS SEARCH ROUTINES
+function get_zips_in_range ( $zip, $range )
+ {
+
+  global $db;
+
+  // returns an array of the zip codes within $range of $zip. Returns
+  // an array with keys as zip codes and values as the distance from
+  // the zipcode defined in $zip.
+
+  $details = get_zip_point($zip);  // base zip details
+
+  if (empty($details)) return;
+
+  // This portion of the routine  calculates the minimum and maximum lat and
+  // long within a given range.  This portion of the code was written
+  // by Jeff Bearer (http://www.jeffbearer.com). This significanly decreases
+  // the time it takes to execute a query.  My demo took 3.2 seconds in
+  // v1.0.0 and now executes in 0.4 seconds!  Greate job Jeff!
+
+  // Find Max - Min Lat / Long for Radius and zero point and query
+  // only zips in that range.
+  $lat_range = $range/69.172;
+  $lon_range = abs($range/(cos($details[0]) * 69.172));
+  $min_lat = number_format($details[0] - $lat_range, "4", ".", "");
+  $max_lat = number_format($details[0] + $lat_range, "4", ".", "");
+  $min_lon = number_format($details[1] - $lon_range, "4", ".", "");
+  $max_lon = number_format($details[1] + $lon_range, "4", ".", "");
+
+  $return = array();    // declared here for scope
+
+  $sql = 'SELECT zip, latitude, longitude FROM ' . ZIP_TABLE . '
+          WHERE latitude BETWEEN ' . $min_lat . ' AND
+          ' . $max_lat . ' AND longitude BETWEEN ' . $min_lon .' AND ' . $max_lon;
+
+  $r = $db->query($sql);
+
+  if (!$r) {    // sql error
+
+    $last_error = mysql_error();
+    return;
+
+   } else {
+
+    while ($row = mysql_fetch_row($r)) {
+
+     // loop through all 40 some thousand zip codes and determine whether
+     // or not it's within the specified range.
+
+     $dist = calculate_mileage($details[0],$row[1],$details[1],$row[2]);
+     if ($dist <= $range) {
+       $return[str_pad($row[0], 5, "0", STR_PAD_LEFT)] = round($dist, 2);
+      }
+     }
+    mysql_free_result($r);
+   }
+
+  return $return;
+
+ }
+
+function get_zip_point ( $zip )
+ {
+   global $db;
+
+   // This function pulls just the lattitude and longitude from the
+   // database for a given zip code.
+
+   $sql = 'SELECT latitude, longitude from ' . ZIP_TABLE . ' WHERE zip = "' . $zip . '"';
+   $r = $db->query($sql);
+   if (!$r) {
+     $last_error = mysql_error();
+     return;
+    } else {
+     $row = $db->fetcharray($r);
+     mysql_free_result($r);
+     return $row;
+    }
+ }
+
+function calculate_mileage ($lat1, $lat2, $lon1, $lon2 )
+ {
+
+  // used internally, this function actually performs that calculation to
+  // determine the mileage between 2 points defined by lattitude and
+  // longitude coordinates.  This calculation is based on the code found
+  // at http://www.cryptnet.net/fsp/zipdy/
+
+  $lat1 = str_replace(",", ".", $lat1);
+  $lat2 = str_replace(",", ".", $lat2);
+  $lon1 = str_replace(",", ".", $lon1);
+  $lon2 = str_replace(",", ".", $lon2);
+
+  // Convert lattitude/longitude (degrees) to radians for calculations
+  $lat1 = deg2rad($lat1);
+  $lon1 = deg2rad($lon1);
+  $lat2 = deg2rad($lat2);
+  $lon2 = deg2rad($lon2);
+
+  // Find the deltas
+  $delta_lat = $lat2 - $lat1;
+  $delta_lon = $lon2 - $lon1;
+
+  // Find the Great Circle distance
+  $temp = pow(sin($delta_lat/2.0),2) + cos($lat1) * cos($lat2) * pow(sin($delta_lon/2.0),2);
+  $distance = 3956 * 2 * atan2(sqrt($temp),sqrt(1-$temp));
+
+	// Convert to kilometers to 2 decimal places
+	if ( MODE == 'KM' )
+	 {
+		$distance = round( $distance * M_TO_KM_FACTOR, 2 );
+	 }
+
+  return $distance;
+
+ }
 
 ?>
-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
