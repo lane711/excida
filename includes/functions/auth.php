@@ -44,11 +44,11 @@ define('PMRUSER', true);
 
 if (defined('PMRADMIN') && PMRADMIN == 'true' || PMRUSER == true) {
 
-	if (!defined('LICENSE') || LICENSE == 'Your License Key Goes Here' || LICENSE == '')
-		die('<h1>License Not Set</h1>Your license key has not been set in the configuration file. Please contact us at <a href="http://www.phpmyrealty.com/contact.html" target="_blank">http://www.phpMyRealty.com/contact.html</a>. Please include the following information:<ul><li>Domain name: "' . $_SERVER['SERVER_NAME'] . '"</li><li>Order ID# (either 2CheckOut.com or Plimus)</li><li>FTP/CPanel Information</li><li>phpMyRealty Version #</li></ul>Thanks!<br>The phpMyRealty Team');
+	// if (!defined('LICENSE') || LICENSE == 'Your License Key Goes Here' || LICENSE == '')
+	// 	die('<h1>License Not Set</h1>Your license key has not been set in the configuration file. Please contact us at <a href="http://www.phpmyrealty.com/contact.html" target="_blank">http://www.phpMyRealty.com/contact.html</a>. Please include the following information:<ul><li>Domain name: "' . $_SERVER['SERVER_NAME'] . '"</li><li>Order ID# (either 2CheckOut.com or Plimus)</li><li>FTP/CPanel Information</li><li>phpMyRealty Version #</li></ul>Thanks!<br>The phpMyRealty Team');
 
-	if (defined('LICENSE'))
-	{
+	// if (defined('LICENSE'))
+	// {
 		$license2 = LICENSE;
 
 		// Decode the license
@@ -67,16 +67,16 @@ if (defined('PMRADMIN') && PMRADMIN == 'true' || PMRUSER == true) {
 		$days_left = ceil(($date_license - $date_now)/86400);
 
 		// If the key has expired, terminate
-		if ($days_left <= 0)
-			die('<h1>License Expired</h1>Your license key has expired. If you were running a trial version of phpMyRealty, we hope you have enjoyed the software. For purchasing information, please visit <a href="http://www.phpmyrealty.com/purchase.html" target="_blank">http://www.phpMyRealty.com/purchase.html</a>. If you have a full license to phpMyRealty and believe this message to be in error, please contact us at <a href="http://www.phpmyrealty.com/contact.html" target="_blank">http://www.phpMyRealty.com/contact.html</a> and we will get back to you as soon as possible. Please include the following:<ul><li>Domain name: "' . $_SERVER['SERVER_NAME'] . '"</li><li>Order ID# (either 2CheckOut.com or Plimus)</li><li>FTP/CPanel Information</li><li>phpMyRealty Version #</li></ul>Thanks!<br>The phpMyRealty Team');
+		// if ($days_left <= 0)
+		// 	die('<h1>License Expired</h1>Your license key has expired. If you were running a trial version of phpMyRealty, we hope you have enjoyed the software. For purchasing information, please visit <a href="http://www.phpmyrealty.com/purchase.html" target="_blank">http://www.phpMyRealty.com/purchase.html</a>. If you have a full license to phpMyRealty and believe this message to be in error, please contact us at <a href="http://www.phpmyrealty.com/contact.html" target="_blank">http://www.phpMyRealty.com/contact.html</a> and we will get back to you as soon as possible. Please include the following:<ul><li>Domain name: "' . $_SERVER['SERVER_NAME'] . '"</li><li>Order ID# (either 2CheckOut.com or Plimus)</li><li>FTP/CPanel Information</li><li>phpMyRealty Version #</li></ul>Thanks!<br>The phpMyRealty Team');
 
 		// Accomodate with or without the 'www.'
 		$domain = str_replace( 'www.', '', $_SERVER['SERVER_NAME'] );
 
 		// If the key is invalid
-		if ($license_sha1 != strtoupper(sha1($domain . ' DOMAIN NAME')))
-			die('<h1>License Incorrect</h1>Your license key is invalid. Please contact us at <a href="http://www.phpmyrealty.com/contact.html" target="_blank">http://www.phpMyRealty.com/contact.html</a>. Please include the following information:<ul><li>Domain name: "' . $_SERVER['SERVER_NAME'] . '"</li><li>Order ID# (either 2CheckOut.com or Plimus)</li><li>FTP/CPanel Information</li><li>phpMyRealty Version #</li></ul>Thanks!<br>The phpMyRealty Team');
-	}
+	// 	if ($license_sha1 != strtoupper(sha1($domain . ' DOMAIN NAME')))
+	// 		die('<h1>License Incorrect</h1>Your license key is invalid. Please contact us at <a href="http://www.phpmyrealty.com/contact.html" target="_blank">http://www.phpMyRealty.com/contact.html</a>. Please include the following information:<ul><li>Domain name: "' . $_SERVER['SERVER_NAME'] . '"</li><li>Order ID# (either 2CheckOut.com or Plimus)</li><li>FTP/CPanel Information</li><li>phpMyRealty Version #</li></ul>Thanks!<br>The phpMyRealty Team');
+	// }
 
 
 function licenseExpiration() {

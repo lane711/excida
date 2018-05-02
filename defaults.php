@@ -13,13 +13,13 @@ if ( !defined( 'PMR' ) || ( defined( 'PMR' ) && PMR != true ) )
 }
 
 // Install/docs dir check
-if ( $page != 'install' )
-{
-	if ( file_exists( PATH . '/docs/version' ) || file_exists( PATH . '/install/index.php' ) )
-	{
-		die( 'You must remove the /install and /docs directories before proceeding.' );		
-	}
-}
+// if ( $page != 'install' )
+// {
+// 	if ( file_exists( PATH . '/docs/version' ) || file_exists( PATH . '/install/index.php' ) )
+// 	{
+// 		die( 'You must remove the /install and /docs directories before proceeding.' );		
+// 	}
+// }
 
 // Include all necessary function/class files
 include PATH . '/includes/functions.php';

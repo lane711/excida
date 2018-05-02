@@ -199,17 +199,17 @@ if ( $_SESSION['step'] == 1 )
 
 	// Check server dependencies/versions
 	
-	echo 'Checking to see if ionCube is installed on the server... ';
-	$extensions = get_loaded_extensions();
-	if ( in_array( 'ionCube Loader', $extensions ) )
-	{
-		echo '<span style="color:green"><b>PASSED!</b> You have ionCube installed.</span>';
-	}
-	else
-	{
-		$proceed = false;
-		echo '<span style="color:red"><b>FAILED!</b> ionCube was not detected. Please contact your web hosting provider to enable ionCube on your account.</span>';
-	}
+	// echo 'Checking to see if ionCube is installed on the server... ';
+	// $extensions = get_loaded_extensions();
+	// if ( in_array( 'ionCube Loader', $extensions ) )
+	// {
+	// 	echo '<span style="color:green"><b>PASSED!</b> You have ionCube installed.</span>';
+	// }
+	// else
+	// {
+	// 	$proceed = true;
+	// 	echo '<span style="color:red"><b>FAILED!</b> ionCube was not detected. Please contact your web hosting provider to enable ionCube on your account.</span>';
+	// }
 	
 	echo '<br /><br />';
 	
@@ -333,7 +333,7 @@ if ( $_SESSION['step'] == 2 )
 	if ( $_POST['submit'] == true ) 
 	{
 		$req_fields = array(
-			'url', 'license', 'path', 'db_host', 'db_name', 'db_username', 'db_password', 'media_url'
+			'url', 'path', 'db_host', 'db_name', 'db_username', 'db_password', 'media_url'
 		);
 		$errors = 0;
 		foreach ( $req_fields AS $key )
@@ -367,7 +367,7 @@ if ( $_SESSION['step'] == 2 )
 		
 			$data = file_get_contents( 'config.sample.php' );
 			$all_fields = array(
-				'url', 'license', 'copyright_license', 'path', 'db_host', 'db_name', 'db_username', 'db_password', 'table_prefix', 'media_url'
+				'url', 'copyright_license', 'path', 'db_host', 'db_name', 'db_username', 'db_password', 'table_prefix', 'media_url'
 			);
 			foreach ( $all_fields AS $key )
 			{
@@ -409,11 +409,6 @@ if ( $_SESSION['step'] == 2 )
 	<table width="50%" border="0" cellpadding="4" align="center" class="form">
 	
 	<tr>
-		<td align="right" style="width:20%">License Key</td>
-		<td align="left"><input type="text" name="license" value="<?php echo $_REQUEST['license']; ?>">&nbsp;<img src="images/help.png" border="0" class="help tooltip" title="You can generate a license key in the <a href='http://realtyscript.com/login.php' target='_blank'>Client Center</a>"></td>
-	</tr>
-	
-	<tr>
 		<td align="right">Full URL</td>
 		<td align="left"><input type="text" name="url" value="<?php echo $url; ?>">&nbsp;<img src="images/help.png" border="0" class="help tooltip" title="The full URL to your installation (e.g., http://www.domain.com, http://www.domain.com/realestate, etc.)"></td>
 	</tr>
@@ -450,11 +445,6 @@ if ( $_SESSION['step'] == 2 )
 	<?php echo sub_header( 'Advanced Settings (Optional)' ); ?>
 	
 	<table width="50%" border="0" cellpadding="4" align="center" class="form">
-	
-	<tr>
-		<td align="right" style="width:20%">Copyright Removal License Key</td>
-		<td align="left"><input type="text" name="copyright_license" value="<?php echo $_REQUEST['copyright_license']; ?>">&nbsp;<img src="images/help.png" border="0" class="help tooltip" title="Optional. You can remove the 'Powered by RealtyScript' by purchasing branding rights on our <a href='http://realtyscript.com/pricing.php' target='_blank'>pricing page</a>"></td>
-	</tr>
 	
 	<tr>
 		<td align="right">Database Host:</td>
